@@ -262,8 +262,29 @@ function showMainInterface() {
     console.log('标签页事件已初始化');
 }
 
+// 更新分级数量显示
+function updateCountDisplay() {
+    const counts = {
+        safe: artifacts.filter(a => a.class === 'safe').length,
+        caution: artifacts.filter(a => a.class === 'caution').length,
+        danger: artifacts.filter(a => a.class === 'danger').length,
+        hazard: artifacts.filter(a => a.class === 'hazard').length
+    };
+    
+    for (const [cls, count] of Object.entries(counts)) {
+        const el = document.getElementById(`count-${cls}`);
+        if (el) {
+            el.textContent = `(${count})`;
+        }
+    }
+    console.log('分级数量已更新:', counts);
+}
+
 // 初始化标签页
 function initTabs() {
+    // 先更新数量显示
+    updateCountDisplay();
+    
     const tabs = document.querySelectorAll('.tab-btn');
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
