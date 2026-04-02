@@ -7,7 +7,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- 登录界面 -->
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>身份验证</h1>
+                <p>Identity Verification</p>
+            </div>
+            <div class="login-warning">
+                <span class="warning-icon">⚠️</span>
+                <span>警告：本系统仅限授权人员访问</span>
+            </div>
+            <input type="text" id="username-input" class="login-input" placeholder="请输入用户名" autocomplete="off">
+            <button class="login-btn" onclick="verifyUser()">验证身份</button>
+            <p class="login-hint">提示：输入档案中的名字可获得相应权限</p>
+        </div>
+    </div>
+
+    <!-- 主界面 -->
+    <div class="container" id="main-container" style="display: none;">
         <header class="header">
             <div class="warning-banner">
                 <span class="warning-icon">⚠️</span>
@@ -15,19 +33,34 @@
             </div>
             <h1 class="title">伪物图鉴</h1>
             <p class="subtitle">Pseudo-Artifacts Archive</p>
-            <div class="classification-level">安全等级：<span id="clearance-level">待授权</span></div>
+            <div class="user-info">
+                <span>欢迎，</span>
+                <span class="user-name" id="user-name-display">未知用户</span>
+                <span class="user-level" id="user-level-display">权限等级：未验证</span>
+            </div>
         </header>
 
         <nav class="nav-tabs">
-            <button class="tab-btn active" data-filter="all">全部 (22)</button>
-            <button class="tab-btn" data-filter="safe">🟩 SAFE (12)</button>
-            <button class="tab-btn" data-filter="caution">🟨 CAUTION (6)</button>
-            <button class="tab-btn" data-filter="danger">🟧 DANGER (3)</button>
-            <button class="tab-btn" data-filter="hazard">🟥 HAZARD (1)</button>
+            <button class="tab-btn" data-filter="safe" data-permission="low">
+                🟩 SAFE 级 <span class="count">(12)</span>
+            </button>
+            <button class="tab-btn" data-filter="caution" data-permission="normal">
+                🟨 CAUTION 级 <span class="count">(6)</span>
+            </button>
+            <button class="tab-btn" data-filter="danger" data-permission="high">
+                🟧 DANGER 级 <span class="count">(3)</span>
+            </button>
+            <button class="tab-btn" data-filter="hazard" data-permission="max">
+                🟥 HAZARD 级 <span class="count">(1)</span>
+            </button>
         </nav>
 
         <main class="artifact-grid" id="artifact-grid">
-            <!-- 物品卡片将通过 JS 动态加载 -->
+            <div class="empty-state">
+                <div class="empty-icon">📁</div>
+                <p>请点击上方分级查看对应物品</p>
+                <p class="empty-hint">根据权限等级，您可查看不同危险级别的物品</p>
+            </div>
         </main>
 
         <footer class="footer">
@@ -67,6 +100,17 @@
                 </div>
             </div>
             <button class="back-btn" onclick="closeModal()">返回图鉴</button>
+        </div>
+    </div>
+
+    <!-- 权限不足提示 -->
+    <div class="permission-denied" id="permission-denied">
+        <div class="denied-content">
+            <div class="denied-icon">🔒</div>
+            <h2>权限不足</h2>
+            <p>Access Denied</p>
+            <p class="denied-message">您的权限等级不足以查看此分级的物品</p>
+            <button class="denied-btn" onclick="closePermissionDenied()">返回</button>
         </div>
     </div>
 
