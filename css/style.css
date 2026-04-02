@@ -1,27 +1,27 @@
-/* SCP 基金会风格伪物图鉴样式 */
+/* SCP 基金会风格伪物图鉴样式 - 浅色调主题 */
 :root {
-    --bg-primary: #0a1628;
-    --bg-secondary: #1a2744;
-    --bg-tertiary: #2d3748;
-    --bg-card: #1e2a44;
-    --text-primary: #e2e8f0;
-    --text-secondary: #a0aec0;
-    --text-muted: #718096;
-    --border-color: #4a5568;
-    --border-light: #2d3748;
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f0f0f0;
+    --bg-card: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --border-color: #dddddd;
+    --border-light: #eeeeee;
     --safe-color: #4a5568;
     --caution-color: #38a169;
     --danger-color: #dd6b20;
     --hazard-color: #c53030;
     --accent-color: #c53030;
-    --warning-bg: rgba(255, 193, 7, 0.15);
-    --warning-text: #f6ad55;
+    --warning-bg: rgba(245, 158, 11, 0.15);
+    --warning-text: #c05621;
     --warning-border: #f59e0b;
     --gold-accent: #d69e2e;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -37,8 +37,7 @@ body {
     line-height: 1.7;
     min-height: 100vh;
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(10, 22, 40, 0.8) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(45, 55, 72, 0.5) 0%, transparent 50%);
+        linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
     background-attachment: fixed;
 }
 
@@ -50,13 +49,13 @@ body {
 
 /* ========== 导航栏 ========== */
 .navbar {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    background: #ffffff;
     border-bottom: 2px solid var(--border-color);
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-content {
@@ -99,7 +98,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 22, 40, 0.95);
+    background: rgba(245, 245, 245, 0.95);
     backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
@@ -108,7 +107,7 @@ body {
 }
 
 .login-box {
-    background: var(--bg-secondary);
+    background: #ffffff;
     border: 2px solid var(--border-color);
     border-radius: 8px;
     padding: 40px;
@@ -172,7 +171,7 @@ body {
     font-size: 15px;
     margin-bottom: 20px;
     transition: all 0.3s ease;
-    background: var(--bg-primary);
+    background: #f9f9f9;
     color: var(--text-primary);
     font-family: 'Consolas', 'Monaco', monospace;
 }
@@ -219,7 +218,7 @@ body {
 
 /* ========== 用户信息栏 ========== */
 .user-info {
-    background: var(--bg-tertiary);
+    background: #f0f0f0;
     padding: 10px 18px;
     border-radius: 6px;
     display: flex;
@@ -289,7 +288,7 @@ body {
 
 /* ========== 头部样式 ========== */
 .header {
-    background: var(--bg-secondary);
+    background: #ffffff;
     border: 2px solid var(--border-color);
     padding: 25px;
     margin-bottom: 25px;
@@ -405,7 +404,7 @@ body {
     margin-bottom: 8px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .subtitle {
@@ -424,7 +423,7 @@ body {
     margin-bottom: 25px;
     justify-content: center;
     padding: 15px;
-    background: var(--bg-secondary);
+    background: #ffffff;
     border-radius: 8px;
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
@@ -433,7 +432,7 @@ body {
 .tab-btn {
     padding: 10px 20px;
     border: 2px solid var(--border-color);
-    background: var(--bg-tertiary);
+    background: #f5f5f5;
     cursor: pointer;
     font-size: 13px;
     font-weight: 600;
@@ -446,7 +445,7 @@ body {
 }
 
 .tab-btn:hover {
-    background: var(--bg-card);
+    background: #e8e8e8;
     border-color: var(--text-muted);
     color: var(--text-primary);
 }
@@ -494,7 +493,7 @@ body {
     text-align: center;
     padding: 80px 20px;
     color: var(--text-muted);
-    background: var(--bg-secondary);
+    background: #ffffff;
     border-radius: 8px;
     border: 2px dashed var(--border-color);
 }
@@ -517,7 +516,7 @@ body {
 }
 
 .artifact-card {
-    background: var(--bg-card);
+    background: #ffffff;
     border: 2px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
@@ -542,7 +541,7 @@ body {
 .artifact-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-xl);
-    border-color: var(--text-muted);
+    border-color: var(--accent-color);
 }
 
 .artifact-card:hover::before {
@@ -553,7 +552,7 @@ body {
     width: 100%;
     height: 280px;
     object-fit: cover;
-    background: var(--bg-tertiary);
+    background: #f5f5f5;
     border-bottom: 2px solid var(--border-color);
     position: relative;
 }
@@ -565,7 +564,7 @@ body {
     left: 0;
     right: 0;
     height: 50px;
-    background: linear-gradient(transparent, var(--bg-card));
+    background: linear-gradient(transparent, #ffffff);
 }
 
 .card-info {
@@ -629,13 +628,13 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 22, 40, 0.9);
+    background: rgba(50, 50, 50, 0.7);
     backdrop-filter: blur(6px);
     overflow-y: auto;
 }
 
 .modal-content {
-    background: var(--bg-secondary);
+    background: #ffffff;
     margin: 5% auto;
     padding: 0;
     border: 2px solid var(--border-color);
@@ -678,7 +677,7 @@ body {
 }
 
 .modal-header {
-    background: var(--bg-tertiary);
+    background: #f5f5f5;
     padding: 20px;
     border-bottom: 2px solid var(--border-color);
     display: flex;
@@ -714,7 +713,7 @@ body {
 
 .modal-image {
     width: 100%;
-    background: var(--bg-tertiary);
+    background: #f5f5f5;
     border-bottom: 2px solid var(--border-color);
 }
 
@@ -745,7 +744,7 @@ body {
 }
 
 .description-text {
-    background: var(--bg-tertiary);
+    background: #f9f9f9;
     padding: 18px;
     border-left: 4px solid var(--accent-color);
     border-radius: 4px;
@@ -771,10 +770,10 @@ body {
 .secret-section {
     margin-top: 25px;
     padding: 25px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #fff9e6 0%, #fff5e6 100%);
     border: 2px solid var(--gold-accent);
     border-radius: 8px;
-    box-shadow: 0 0 25px rgba(214, 158, 46, 0.25);
+    box-shadow: 0 0 25px rgba(214, 158, 46, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -786,7 +785,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(214, 158, 46, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(214, 158, 46, 0.12) 0%, transparent 70%);
     animation: pulse 4s ease-in-out infinite;
 }
 
@@ -800,7 +799,7 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 15px;
-    color: var(--gold-accent);
+    color: #8b4513;
     font-weight: bold;
     font-size: 14px;
     position: relative;
@@ -815,7 +814,7 @@ body {
 }
 
 .secret-content {
-    color: #e2e8f0;
+    color: #444444;
     line-height: 1.9;
     font-size: 14px;
     position: relative;
@@ -826,7 +825,7 @@ body {
 .secret-lock {
     margin-top: 25px;
     padding: 25px;
-    background: var(--bg-tertiary);
+    background: #f5f5f5;
     border: 2px dashed var(--border-color);
     border-radius: 8px;
     text-align: center;
@@ -883,14 +882,14 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 22, 40, 0.92);
+    background: rgba(50, 50, 50, 0.75);
     backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
 }
 
 .lore-modal {
-    background: var(--bg-secondary);
+    background: #ffffff;
     border: 2px solid var(--border-color);
     border-radius: 12px;
     max-width: 800px;
@@ -925,7 +924,7 @@ body {
 }
 
 .lore-modal-header {
-    background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf0 100%);
     color: var(--text-primary);
     padding: 20px;
     display: flex;
@@ -971,7 +970,7 @@ body {
 
 .lore-modal-body h3 {
     font-family: 'Georgia', serif;
-    color: #60a5fa;
+    color: #2563eb;
     margin-bottom: 12px;
     font-size: 17px;
     letter-spacing: 0.5px;
@@ -979,7 +978,7 @@ body {
 
 .lore-modal-body p {
     margin-bottom: 15px;
-    color: var(--text-secondary);
+    color: #444444;
 }
 
 .lore-modal-body ul {
@@ -989,7 +988,7 @@ body {
 
 .lore-modal-body li {
     margin-bottom: 8px;
-    color: var(--text-secondary);
+    color: #444444;
 }
 
 .back-btn {
@@ -1025,21 +1024,21 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 22, 40, 0.95);
+    background: rgba(50, 50, 50, 0.8);
     backdrop-filter: blur(6px);
     align-items: center;
     justify-content: center;
 }
 
 .denied-content {
-    background: var(--bg-secondary);
+    background: #ffffff;
     border: 3px solid var(--hazard-color);
     border-radius: 8px;
     padding: 50px;
     text-align: center;
     max-width: 450px;
     width: 90%;
-    box-shadow: 0 0 50px rgba(197, 48, 48, 0.4);
+    box-shadow: 0 0 50px rgba(197, 48, 48, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -1118,7 +1117,7 @@ body {
     font-size: 12px;
     border-top: 2px solid var(--border-color);
     margin-top: 40px;
-    background: var(--bg-secondary);
+    background: #ffffff;
     box-shadow: var(--shadow-sm);
 }
 
@@ -1270,16 +1269,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-primary);
+    background: #f0f0f0;
     border-left: 1px solid var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--bg-tertiary);
+    background: #cccccc;
     border-radius: 5px;
-    border: 2px solid var(--bg-primary);
+    border: 2px solid #f0f0f0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--border-color);
+    background: #bbbbbb;
 }

@@ -152,26 +152,37 @@ function showMainInterface() {
     }
     
     // 检查是否为临时权限
-    const isTemporary = currentUserLevel === 'high' && localStorage.getItem('pseudoArtifactsUser')?.includes('isTemporary');
+    const isTemporary = currentUserLevel === 'max' && localStorage.getItem('pseudoArtifactsUser')?.includes('isTemporary');
     
     // 显示/隐藏临时权限标识
     if (temporaryBoostBadge) {
-        if (isTemporary || currentUserLevel === 'high') {
+        if (isTemporary || currentUserLevel === 'max') {
             temporaryBoostBadge.style.display = 'inline-block';
-            console.log('显示临时高权限标识');
+            temporaryBoostBadge.textContent = '🔑 临时最高权限';
+            console.log('显示临时最高权限标识');
         } else {
             temporaryBoostBadge.style.display = 'none';
         }
     }
     
-    // 显示/隐藏权限提升入口（仅非 high/max 权限用户可见）
+    // 显示/隐藏权限提升入口
     const permissionBoostEntry = document.getElementById('permission-boost-entry');
+    const permissionBoostSection = document.getElementById('permission-boost-section');
+    
+    // 只有 low 和 normal 权限才显示权限提升入口
+    // high 和 max 权限（档案角色）不显示
     if (permissionBoostEntry) {
         if (currentUserLevel === 'low' || currentUserLevel === 'normal') {
             permissionBoostEntry.style.display = 'block';
+            if (permissionBoostSection) {
+                permissionBoostSection.style.display = 'block';
+            }
             console.log('显示权限提升入口');
         } else {
             permissionBoostEntry.style.display = 'none';
+            if (permissionBoostSection) {
+                permissionBoostSection.style.display = 'none';
+            }
         }
     }
     
@@ -274,21 +285,21 @@ function verifyPermissionCode() {
         // 验证成功
         console.log('验证码正确，提升权限...');
         messageDiv.className = 'permission-message success';
-        messageDiv.textContent = '验证通过 临时提高权限';
+        messageDiv.textContent = '🔑 临时最高权限';
         
         // 更新权限等级
-        currentUserLevel = 'high';
+        currentUserLevel = 'max';
         
         // 更新 localStorage
         if (currentUser) {
             localStorage.setItem('pseudoArtifactsUser', JSON.stringify({ 
                 name: currentUser, 
-                level: 'high',
+                level: 'max',
                 isTemporary: true 
             }));
         }
         
-        console.log('权限已更新为 high，localStorage 已更新');
+        console.log('权限已更新为 max，localStorage 已更新');
         
         // 延迟刷新页面
         setTimeout(() => {
