@@ -1,4 +1,7 @@
 // 伪物图鉴主脚本
+// 引入辛秘数据
+const ARTIFACT_SECRETS = window.ARTIFACT_SECRETS || {};
+
 let currentUser = null;
 let currentUserLevel = 'low';
 let currentFilter = null;
@@ -18,6 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // 自动聚焦输入框
         setTimeout(() => usernameInput.focus(), 100);
         console.log('输入框已绑定回车事件');
+    }
+    
+    // 绑定权限验证码输入框的回车事件
+    const permissionCodeInput = document.getElementById('permission-code-input');
+    if (permissionCodeInput) {
+        permissionCodeInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                verifyPermissionCode();
+            }
+        });
+        console.log('权限验证码输入框已绑定回车事件');
     }
     
     // 检查是否已登录（有缓存）
@@ -120,6 +134,7 @@ function showMainInterface() {
     const userNameDisplay = document.getElementById('user-name-display');
     const userIdentityDisplay = document.getElementById('user-identity-display');
     const userLevelDisplay = document.getElementById('user-level-display');
+    const temporaryBoostBadge = document.getElementById('temporary-boost-badge');
     
     if (userNameDisplay && userIdentityDisplay && userLevelDisplay) {
         userNameDisplay.textContent = currentUser;
@@ -128,6 +143,30 @@ function showMainInterface() {
         userLevelDisplay.textContent = `权限等级：${levelInfo.name}`;
         userLevelDisplay.className = `user-level ${currentUserLevel}`;
         console.log('用户信息显示:', currentUser, '| 身份:', userIdentity, '| 权限:', levelInfo.name);
+    }
+    
+    // 检查是否为临时权限
+    const isTemporary = currentUserLevel === 'high' && localStorage.getItem('pseudoArtifactsUser')?.includes('isTemporary');
+    
+    // 显示/隐藏临时权限标识
+    if (temporaryBoostBadge) {
+        if (isTemporary || currentUserLevel === 'high') {
+            temporaryBoostBadge.style.display = 'inline-block';
+            console.log('显示临时高权限标识');
+        } else {
+            temporaryBoostBadge.style.display = 'none';
+        }
+    }
+    
+    // 显示/隐藏权限提升入口（仅非 high/max 权限用户可见）
+    const permissionBoostEntry = document.getElementById('permission-boost-entry');
+    if (permissionBoostEntry) {
+        if (currentUserLevel === 'low' || currentUserLevel === 'normal') {
+            permissionBoostEntry.style.display = 'block';
+            console.log('显示权限提升入口');
+        } else {
+            permissionBoostEntry.style.display = 'none';
+        }
     }
     
     // 初始化标签页点击事件
@@ -179,6 +218,87 @@ function closePermissionDenied() {
     document.getElementById('permission-denied').style.display = 'none';
 }
 
+// 显示权限验证弹窗
+function showPermissionModal() {
+    console.log('显示权限验证弹窗...');
+    const modalOverlay = document.getElementById('permission-modal-overlay');
+    const codeInput = document.getElementById('permission-code-input');
+    const messageDiv = document.getElementById('permission-message');
+    
+    if (modalOverlay) {
+        modalOverlay.style.display = 'flex';
+        // 清空之前的消息和输入
+        if (messageDiv) {
+            messageDiv.className = 'permission-message';
+            messageDiv.textContent = '';
+        }
+        if (codeInput) {
+            codeInput.value = '';
+            setTimeout(() => codeInput.focus(), 100);
+        }
+        console.log('权限验证弹窗已显示');
+    }
+}
+
+// 关闭权限验证弹窗
+function closePermissionModal() {
+    console.log('关闭权限验证弹窗...');
+    const modalOverlay = document.getElementById('permission-modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.style.display = 'none';
+        console.log('权限验证弹窗已关闭');
+    }
+}
+
+// 验证权限代码
+function verifyPermissionCode() {
+    console.log('开始验证权限代码...');
+    const codeInput = document.getElementById('permission-code-input');
+    const messageDiv = document.getElementById('permission-message');
+    
+    if (!codeInput || !messageDiv) {
+        console.error('找不到输入框或消息显示区域！');
+        return;
+    }
+    
+    const code = codeInput.value.trim();
+    console.log('输入的验证码:', code);
+    
+    if (code === '1062624601') {
+        // 验证成功
+        console.log('验证码正确，提升权限...');
+        messageDiv.className = 'permission-message success';
+        messageDiv.textContent = '验证通过 临时提高权限';
+        
+        // 更新权限等级
+        currentUserLevel = 'high';
+        
+        // 更新 localStorage
+        if (currentUser) {
+            localStorage.setItem('pseudoArtifactsUser', JSON.stringify({ 
+                name: currentUser, 
+                level: 'high',
+                isTemporary: true 
+            }));
+        }
+        
+        console.log('权限已更新为 high，localStorage 已更新');
+        
+        // 延迟刷新页面
+        setTimeout(() => {
+            console.log('刷新页面以应用新权限...');
+            location.reload();
+        }, 1500);
+    } else {
+        // 验证失败
+        console.log('验证码错误');
+        messageDiv.className = 'permission-message error';
+        messageDiv.textContent = '验证失败，请检查输入';
+        codeInput.value = '';
+        setTimeout(() => codeInput.focus(), 100);
+    }
+}
+
 // 渲染物品列表
 function renderArtifacts(filter) {
     const grid = document.getElementById('artifact-grid');
@@ -223,6 +343,26 @@ function showArtifact(id) {
     document.getElementById('modal-description').textContent = artifact.description;
     document.getElementById('modal-img').src = artifact.image;
     
+    // 显示辛秘（仅高权限）
+    const secretSection = document.getElementById('secret-section');
+    const secretLock = document.getElementById('secret-lock');
+    const secretContent = document.getElementById('secret-content');
+    
+    if (currentUserLevel === 'high' || currentUserLevel === 'max') {
+        const secret = ARTIFACT_SECRETS[artifact.id];
+        if (secret) {
+            secretContent.innerHTML = formatSecretWithLinks(secret);
+            secretSection.style.display = 'block';
+            secretLock.style.display = 'none';
+        } else {
+            secretSection.style.display = 'none';
+            secretLock.style.display = 'block';
+        }
+    } else {
+        secretSection.style.display = 'none';
+        secretLock.style.display = 'block';
+    }
+    
     document.getElementById('artifact-modal').style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -233,15 +373,29 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+// 格式化辛秘内容，处理特殊链接
+function formatSecretWithLinks(secret) {
+    if (!secret) return '';
+    
+    // 将文本中的特殊标记转换为链接
+    // 支持格式：[[链接文本|URL]] 或 [[URL]]
+    return secret.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '<a href="$2" target="_blank" class="secret-link">$1</a>')
+                 .replace(/\[\[([^\]]+)\]\]/g, '<a href="$1" target="_blank" class="secret-link">$1</a>');
+}
+
 // 点击模态框外部关闭
 window.onclick = function(event) {
     const modal = document.getElementById('artifact-modal');
     const denied = document.getElementById('permission-denied');
+    const permissionModal = document.getElementById('permission-modal-overlay');
     if (event.target === modal) {
         closeModal();
     }
     if (event.target === denied) {
         closePermissionDenied();
+    }
+    if (event.target === permissionModal) {
+        closePermissionModal();
     }
 }
 
@@ -250,17 +404,26 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();
         closePermissionDenied();
+        closePermissionModal();
     }
 });
 
 // 登出功能
 function logout() {
-    console.log('用户退出登录');
+    console.log('========== 退出登录 ==========');
+    console.log('退出前用户:', currentUser, '权限等级:', currentUserLevel);
+    
+    // 1. 清除 localStorage 中的用户数据
     localStorage.removeItem('pseudoArtifactsUser');
-    // 重置全局变量
+    console.log('✓ 已清除 localStorage 用户数据');
+    
+    // 2. 重置全局变量
     currentUser = null;
     currentUserLevel = 'low';
     currentFilter = null;
-    // 重新加载页面
+    console.log('✓ 已重置全局变量: currentUser=null, currentUserLevel=low, currentFilter=null');
+    
+    // 3. 刷新页面返回登录界面
+    console.log('即将刷新页面返回登录界面...');
     location.reload();
 }

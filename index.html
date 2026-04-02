@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>伪物图鉴 | Pseudo-Artifacts Archive</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/secrets.js"></script>
 </head>
 <body>
     <!-- 登录界面 -->
@@ -27,23 +28,28 @@
     <!-- 主界面 -->
     <div class="container" id="main-container" style="display: none;">
         <header class="header">
-            <div class="header-top">
-                <button class="logout-btn" onclick="logout()" title="退出登录">
-                    <span class="logout-icon">🚪</span>
-                    <span>退出登录</span>
-                </button>
+            <div class="header-nav">
+                <div class="nav-left">
+                    <button class="logout-btn" onclick="logout()" title="退出登录">退出登录</button>
+                </div>
+                <div class="nav-center">
+                    <h1 class="title">伪物图鉴</h1>
+                    <p class="subtitle">Pseudo-Artifacts Archive</p>
+                </div>
+                <div class="nav-right">
+                    <div class="user-info">
+                        <span class="welcome-text">欢迎，</span>
+                        <span class="user-name" id="user-name-display">未知用户</span>
+                        <span class="user-identity" id="user-identity-display">身份：未验证</span>
+                        <span class="user-level" id="user-level-display">权限等级：未验证</span>
+                        <span class="temporary-boost-badge" id="temporary-boost-badge" style="display: none;">🔓 临时权限激活</span>
+                    </div>
+                    <button id="permission-boost-entry" class="boost-btn" onclick="showPermissionModal()" style="display: none; margin-left: 10px;" title="申请临时权限">🔑 权限提升</button>
+                </div>
             </div>
             <div class="warning-banner">
                 <span class="warning-icon">⚠️</span>
                 <span>警告：以下内容包含里界异常物品信息，仅限黎守授权人员查阅</span>
-            </div>
-            <h1 class="title">伪物图鉴</h1>
-            <p class="subtitle">Pseudo-Artifacts Archive</p>
-            <div class="user-info">
-                <span class="welcome-text">欢迎，</span>
-                <span class="user-name" id="user-name-display">未知用户</span>
-                <span class="user-identity" id="user-identity-display">身份：未验证</span>
-                <span class="user-level" id="user-level-display">权限等级：未验证</span>
             </div>
         </header>
 
@@ -74,6 +80,12 @@
             <p>© 2026 黎守调查局 伪物档案馆 | 渊 • 西陆 • 赤红新星 联合收容</p>
             <p class="disclaimer">本系统收录表界/里界异常物品，未经授权禁止访问</p>
         </footer>
+
+        <!-- 权限提升入口（仅普通/低权限可见） -->
+        <div class="permission-boost-section" id="permission-boost-section">
+            <p>需要更高访问权限？</p>
+            <button onclick="showPermissionModal()">申请临时权限</button>
+        </div>
     </div>
 
     <!-- 物品详情模态框 -->
@@ -131,6 +143,25 @@
             <p class="denied-message">您的黎守权限等级不足以查看此分级的里界物品</p>
             <p class="denied-hint">如需提升权限，请联系黎守调查局或 ABSC 管理部门</p>
             <button class="denied-btn" onclick="closePermissionDenied()">返回</button>
+        </div>
+    </div>
+
+    <!-- 权限提升验证弹窗 -->
+    <div class="permission-modal-overlay" id="permission-modal-overlay">
+        <div class="permission-modal">
+            <div class="permission-modal-header">
+                <span class="permission-modal-title">🔑 权限提升验证</span>
+                <button class="permission-modal-close" onclick="closePermissionModal()">&times;</button>
+            </div>
+            <div class="permission-modal-body">
+                <p style="margin-bottom: 15px; color: var(--text-secondary); font-size: 14px;">
+                    请输入临时权限验证码以提升访问权限
+                </p>
+                <input type="text" id="permission-code-input" class="permission-input" placeholder="请输入验证码" maxlength="10" autocomplete="off">
+                <button class="permission-btn" onclick="verifyPermissionCode()">验证权限</button>
+                <div id="permission-message" class="permission-message"></div>
+                <p class="permission-hint">提示：验证码由管理员提供，临时权限在刷新页面后有效</p>
+            </div>
         </div>
     </div>
 
