@@ -3,21 +3,54 @@ let currentUser = null;
 let currentUserLevel = 'low';
 let currentFilter = null;
 
-// 初始化
+// 初始化 - 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', () => {
-    // 检查是否已登录
+    console.log('页面加载完成，开始初始化...');
+    
+    // 绑定回车键事件
+    const usernameInput = document.getElementById('username-input');
+    if (usernameInput) {
+        usernameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                verifyUser();
+            }
+        });
+        // 自动聚焦输入框
+        setTimeout(() => usernameInput.focus(), 100);
+        console.log('输入框已绑定回车事件');
+    }
+    
+    // 检查是否已登录（有缓存）
     const savedUser = localStorage.getItem('pseudoArtifactsUser');
     if (savedUser) {
-        const userData = JSON.parse(savedUser);
-        currentUser = userData.name;
-        currentUserLevel = userData.level;
-        showMainInterface();
+        try {
+            const userData = JSON.parse(savedUser);
+            currentUser = userData.name;
+            currentUserLevel = userData.level;
+            console.log('检测到已登录用户:', currentUser, '权限:', currentUserLevel);
+            showMainInterface();
+        } catch (e) {
+            console.error('解析用户数据失败:', e);
+            localStorage.removeItem('pseudoArtifactsUser');
+        }
+    } else {
+        console.log('未检测到已登录用户，显示登录界面');
     }
 });
 
 // 验证用户身份
 function verifyUser() {
-    const username = document.getElementById('username-input').value.trim();
+    console.log('开始验证用户身份...');
+    
+    const usernameInput = document.getElementById('username-input');
+    if (!usernameInput) {
+        console.error('找不到用户名输入框！');
+        alert('系统错误：找不到输入框');
+        return;
+    }
+    
+    const username = usernameInput.value.trim();
+    console.log('输入的用户名:', username);
     
     if (!username) {
         alert('请输入用户名');
@@ -29,16 +62,20 @@ function verifyUser() {
     
     if (MAX_PERMISSION_USERS.includes(username)) {
         level = 'max';
+        console.log('识别为最高权限用户');
     } else if (HIGH_PERMISSION_USERS.includes(username)) {
         level = 'high';
+        console.log('识别为高权限用户');
     } else if (username.length > 0) {
         level = 'normal';
+        console.log('识别为普通用户');
     }
     
     // 保存用户信息
     currentUser = username;
     currentUserLevel = level;
     localStorage.setItem('pseudoArtifactsUser', JSON.stringify({ name: username, level: level }));
+    console.log('用户信息已保存，权限等级:', level);
     
     // 显示主界面
     showMainInterface();
@@ -46,17 +83,35 @@ function verifyUser() {
 
 // 显示主界面
 function showMainInterface() {
-    document.getElementById('login-overlay').style.display = 'none';
-    document.getElementById('main-container').style.display = 'block';
+    console.log('显示主界面...');
+    
+    const loginOverlay = document.getElementById('login-overlay');
+    const mainContainer = document.getElementById('main-container');
+    
+    if (!loginOverlay || !mainContainer) {
+        console.error('找不到登录界面或主容器！');
+        return;
+    }
+    
+    loginOverlay.style.display = 'none';
+    mainContainer.style.display = 'block';
+    console.log('登录界面已隐藏，主界面已显示');
     
     // 更新用户信息显示
-    const levelInfo = PERMISSION_LEVELS[currentUserLevel];
-    document.getElementById('user-name-display').textContent = currentUser;
-    document.getElementById('user-level-display').textContent = `权限等级：${levelInfo.name}`;
-    document.getElementById('user-level-display').className = `user-level ${currentUserLevel}`;
+    const userNameDisplay = document.getElementById('user-name-display');
+    const userLevelDisplay = document.getElementById('user-level-display');
+    
+    if (userNameDisplay && userLevelDisplay) {
+        userNameDisplay.textContent = currentUser;
+        const levelInfo = PERMISSION_LEVELS[currentUserLevel];
+        userLevelDisplay.textContent = `权限等级：${levelInfo.name}`;
+        userLevelDisplay.className = `user-level ${currentUserLevel}`;
+        console.log('用户信息显示:', currentUser, levelInfo.name);
+    }
     
     // 初始化标签页点击事件
     initTabs();
+    console.log('标签页事件已初始化');
 }
 
 // 初始化标签页
@@ -81,13 +136,6 @@ function initTabs() {
             currentFilter = filter;
             renderArtifacts(filter);
         });
-    });
-    
-    // 添加回车键支持
-    document.getElementById('username-input').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            verifyUser();
-        }
     });
 }
 
