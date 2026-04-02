@@ -108,7 +108,7 @@ window.CLASS_PERMISSION_MAP = {
     safe: 'low',
     caution: 'normal',
     danger: 'high',
-    hazard: 'max'
+    hazard: 'high'
 };
 
 // ========== 伪物数据 ==========
