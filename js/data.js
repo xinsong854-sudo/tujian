@@ -330,7 +330,7 @@ window.artifacts = [
         image: "images/da-003.jpg"
     },
     
-    // ========== 🟥 HAZARD 级（1 个）- 灾难级 ==========
+    // ========== 🟥 HAZARD 级（2 个）- 灾难级 ==========
     {
         id: "HA-001",
         name: "终焉之匣",
@@ -340,5 +340,15 @@ window.artifacts = [
         description: "一个黑色金属立方体，表面没有任何接缝。根据破译的古代文献，该物品被描述为「世界的终点」。任何尝试开启的行为都可能导致现实结构崩溃。",
         effect: "未知，推测可终结现实",
         image: "images/ha-001.jpg"
+    },
+    {
+        id: "HA-002",
+        name: "夜鹭",
+        class: "hazard",
+        location: "未公开",
+        containment: "因营长个人喜好而特殊保管",
+        description: "因为营长喜欢所以放在了这里",
+        effect: "未知",
+        image: "images/ha-002.jpg"
     }
 ];
