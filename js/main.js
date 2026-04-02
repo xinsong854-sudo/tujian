@@ -81,6 +81,21 @@ function verifyUser() {
     showMainInterface();
 }
 
+// 获取用户身份关键词
+function getUserIdentity(username) {
+    // 检查身份关键词映射
+    for (const [key, identity] of Object.entries(IDENTITY_KEYWORDS)) {
+        if (username.includes(key) || key.includes(username)) {
+            return identity;
+        }
+    }
+    // 默认身份
+    if (MAX_PERMISSION_USERS.includes(username)) {
+        return '管理者';
+    }
+    return '访客';
+}
+
 // 显示主界面
 function showMainInterface() {
     console.log('显示主界面...');
@@ -97,16 +112,21 @@ function showMainInterface() {
     mainContainer.style.display = 'block';
     console.log('登录界面已隐藏，主界面已显示');
     
+    // 获取用户身份
+    const userIdentity = getUserIdentity(currentUser);
+    
     // 更新用户信息显示
     const userNameDisplay = document.getElementById('user-name-display');
+    const userIdentityDisplay = document.getElementById('user-identity-display');
     const userLevelDisplay = document.getElementById('user-level-display');
     
-    if (userNameDisplay && userLevelDisplay) {
+    if (userNameDisplay && userIdentityDisplay && userLevelDisplay) {
         userNameDisplay.textContent = currentUser;
+        userIdentityDisplay.textContent = `身份：${userIdentity}`;
         const levelInfo = PERMISSION_LEVELS[currentUserLevel];
         userLevelDisplay.textContent = `权限等级：${levelInfo.name}`;
         userLevelDisplay.className = `user-level ${currentUserLevel}`;
-        console.log('用户信息显示:', currentUser, levelInfo.name);
+        console.log('用户信息显示:', currentUser, '| 身份:', userIdentity, '| 权限:', levelInfo.name);
     }
     
     // 初始化标签页点击事件
