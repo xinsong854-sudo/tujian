@@ -1,6 +1,12 @@
 // 伪物图鉴主脚本
-// 引入辛秘数据
+// 引入辛秘数据和全局变量
 const ARTIFACT_SECRETS = window.ARTIFACT_SECRETS || {};
+const IDENTITY_KEYWORDS = window.IDENTITY_KEYWORDS || {};
+const HIGH_PERMISSION_USERS = window.HIGH_PERMISSION_USERS || [];
+const MAX_PERMISSION_USERS = window.MAX_PERMISSION_USERS || [];
+const PERMISSION_LEVELS = window.PERMISSION_LEVELS || {};
+const CLASS_PERMISSION_MAP = window.CLASS_PERMISSION_MAP || {};
+const artifacts = window.artifacts || [];
 
 let currentUser = null;
 let currentUserLevel = 'low';

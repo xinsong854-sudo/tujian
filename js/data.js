@@ -2,7 +2,8 @@
 // 分级规则：SAFE 最多最鸡肋 → HAZARD 最少最危险
 
 // ========== 身份关键词映射 ==========
-const IDENTITY_KEYWORDS = {
+// 使用 window 对象全局导出，确保跨文件可访问
+window.IDENTITY_KEYWORDS = {
     // 人类档案
     "烛灯": "揭秘人",
     "绫份": "猎人",
@@ -60,7 +61,7 @@ const IDENTITY_KEYWORDS = {
 
 // ========== 权限配置 ==========
 // 高权限用户名单（可看 SAFE + CAUTION + DANGER）
-const HIGH_PERMISSION_USERS = [
+window.HIGH_PERMISSION_USERS = [
     // 人类档案
     '烛灯', '绫份', '灼玥', '白桦', '斯汀先生', '艾尔伯特·帕拉索',
     // 伪人档案
@@ -75,10 +76,10 @@ const HIGH_PERMISSION_USERS = [
 ];
 
 // 最高权限用户（可查看所有内容）
-const MAX_PERMISSION_USERS = ['安诺涅', '营长'];
+window.MAX_PERMISSION_USERS = ['安诺涅', '营长'];
 
 // 权限等级定义
-const PERMISSION_LEVELS = {
+window.PERMISSION_LEVELS = {
     low: { name: '受限访问', canView: ['safe'] },
     normal: { name: '标准访问', canView: ['safe', 'caution'] },
     high: { name: '高级访问', canView: ['safe', 'caution', 'danger'] },
@@ -86,7 +87,7 @@ const PERMISSION_LEVELS = {
 };
 
 // 分级权限映射
-const CLASS_PERMISSION_MAP = {
+window.CLASS_PERMISSION_MAP = {
     safe: 'low',
     caution: 'normal',
     danger: 'high',
@@ -94,7 +95,7 @@ const CLASS_PERMISSION_MAP = {
 };
 
 // ========== 伪物数据 ==========
-const artifacts = [
+window.artifacts = [
     // ========== 🟩 SAFE 级（12 个）- 无害但鸡肋 ==========
     {
         id: "PA-001",
