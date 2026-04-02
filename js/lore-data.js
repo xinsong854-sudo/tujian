@@ -50,11 +50,11 @@ window.LORE_ORGANIZATIONS = [
   {
     name: "槐安公寓",
     alias: "Huai'an Apartments",
-    description: "表面是普通公寓，实为异常事件频发地",
-    duties: "无正式职责，是各类事件的交汇点",
-    features: "住户身份神秘、空间结构异常、传闻有里界入口",
-    knownMembers: "多位神秘住户",
-    location: "渊东共和国某城市"
+    description: "渊境内最大伪人聚落，官方设立的伪人住宿/社会化教育机构，里界最大出入口所在地",
+    duties: "伪人住宿管理、社会化教育、督察伪人适应情况",
+    features: "住户身份神秘、空间结构异常、里界出入口、营长是楼长",
+    knownMembers: "营长（楼长）、化而为、西瓜人、X、亚契·谜思等多位神秘住户",
+    location: "渊境内"
   },
   {
     name: "非常电影院",
