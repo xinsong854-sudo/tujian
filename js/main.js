@@ -8,6 +8,11 @@ const PERMISSION_LEVELS = window.PERMISSION_LEVELS || {};
 const CLASS_PERMISSION_MAP = window.CLASS_PERMISSION_MAP || {};
 const artifacts = window.artifacts || [];
 
+// 引入资料数据（组织/地区/角色）
+const LORE_ORGANIZATIONS = window.LORE_ORGANIZATIONS || {};
+const LORE_REGIONS = window.LORE_REGIONS || {};
+const LORE_CHARACTERS = window.LORE_CHARACTERS || {};
+
 let currentUser = null;
 let currentUserLevel = 'low';
 let currentFilter = null;
@@ -156,7 +161,7 @@ function showMainInterface() {
     
     // 显示/隐藏临时权限标识
     if (temporaryBoostBadge) {
-        if (isTemporary || currentUserLevel === 'max') {
+        if (isTemporary) {
             temporaryBoostBadge.style.display = 'inline-block';
             temporaryBoostBadge.textContent = '🔑 临时最高权限';
             console.log('显示临时最高权限标识');
@@ -390,14 +395,141 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+// 特殊链接正则模式：匹配 [组织名]、[地区名]、[角色名]
+const SPECIAL_LINK_PATTERNS = [
+    { type: 'organization', regex: /\[([^\]]+)\](?=\s*(?:组织|机构|团体))/g },
+    { type: 'region', regex: /\[([^\]]+)\](?=\s*(?:地区|区域|地方|城市))/g },
+    { type: 'character', regex: /\[([^\]]+)\](?=\s*(?:角色|人物|成员|干员|特工))/g }
+];
+
 // 格式化辛秘内容，处理特殊链接
 function formatSecretWithLinks(secret) {
     if (!secret) return '';
     
-    // 将文本中的特殊标记转换为链接
-    // 支持格式：[[链接文本|URL]] 或 [[URL]]
-    return secret.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '<a href="$2" target="_blank" class="secret-link">$1</a>')
-                 .replace(/\[\[([^\]]+)\]\]/g, '<a href="$1" target="_blank" class="secret-link">$1</a>');
+    let formatted = secret;
+    
+    // 使用 SPECIAL_LINK_PATTERNS 正则匹配 [组织名]、[地区名]、[角色名]
+    SPECIAL_LINK_PATTERNS.forEach(pattern => {
+        formatted = formatted.replace(pattern.regex, (match, name) => {
+            // 转换为带 data-type 和 data-name 属性的链接
+            return `<a href="javascript:void(0)" class="secret-link lore-link" data-type="${pattern.type}" data-name="${name}">${name}</a>`;
+        });
+    });
+    
+    // 保留原有的 [[链接文本|URL]] 和 [[URL]] 格式支持
+    formatted = formatted.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '<a href="$2" target="_blank" class="secret-link">$1</a>')
+                         .replace(/\[\[([^\]]+)\]\]/g, '<a href="$1" target="_blank" class="secret-link">$1</a>');
+    
+    // 添加点击事件监听（使用事件委托）
+    setTimeout(() => {
+        const loreLinks = document.querySelectorAll('.lore-link');
+        loreLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const type = e.target.dataset.type;
+                const name = e.target.dataset.name;
+                if (type && name) {
+                    showLoreModal(type, name);
+                }
+            });
+        });
+    }, 0);
+    
+    return formatted;
+}
+
+// 显示资料弹窗
+function showLoreModal(type, name) {
+    console.log('显示资料弹窗:', type, name);
+    
+    const modalOverlay = document.getElementById('lore-modal-overlay');
+    const modalTitle = document.getElementById('lore-modal-title');
+    const modalBody = document.getElementById('lore-modal-body');
+    
+    if (!modalOverlay || !modalTitle || !modalBody) {
+        console.error('找不到资料弹窗元素！');
+        return;
+    }
+    
+    let loreData = null;
+    let titlePrefix = '';
+    
+    // 根据 type 和 name 查找资料
+    switch (type) {
+        case 'organization':
+            loreData = LORE_ORGANIZATIONS[name];
+            titlePrefix = '🏛️ 组织';
+            break;
+        case 'region':
+            loreData = LORE_REGIONS[name];
+            titlePrefix = '🌍 地区';
+            break;
+        case 'character':
+            loreData = LORE_CHARACTERS[name];
+            titlePrefix = '👤 角色';
+            break;
+        default:
+            console.error('未知的资料类型:', type);
+            return;
+    }
+    
+    if (!loreData) {
+        console.warn('未找到资料:', type, name);
+        modalBody.innerHTML = `
+            <div class="lore-not-found">
+                <p>暂无该${titlePrefix.replace(/🏛️|🌍|👤/g, '').trim()}的详细资料</p>
+                <p class="lore-hint">资料正在收集中...</p>
+            </div>
+        `;
+        modalTitle.textContent = `${titlePrefix}：${name}`;
+    } else {
+        // 填充 lore-modal-body
+        let content = '';
+        
+        if (loreData.description) {
+            content += `<p class="lore-description">${loreData.description}</p>`;
+        }
+        
+        if (loreData.details) {
+            content += `<div class="lore-details">${loreData.details}</div>`;
+        }
+        
+        if (loreData.members && Array.isArray(loreData.members)) {
+            content += `<div class="lore-members"><strong>成员：</strong>${loreData.members.join('、')}</div>`;
+        }
+        
+        if (loreData.location) {
+            content += `<div class="lore-location"><strong>位置：</strong>${loreData.location}</div>`;
+        }
+        
+        if (loreData.affiliation) {
+            content += `<div class="lore-affiliation"><strong>隶属：</strong>${loreData.affiliation}</div>`;
+        }
+        
+        modalBody.innerHTML = content;
+        modalTitle.textContent = `${titlePrefix}：${name}`;
+    }
+    
+    // 显示弹窗
+    modalOverlay.style.display = 'flex';
+    console.log('资料弹窗已显示');
+}
+
+// 关闭资料弹窗
+function closeLoreModal() {
+    console.log('关闭资料弹窗...');
+    const modalOverlay = document.getElementById('lore-modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.style.display = 'none';
+        console.log('资料弹窗已关闭');
+    }
+}
+
+// 点击遮罩层关闭资料弹窗
+function closeLoreModalOnOverlay(event) {
+    if (event.target === event.currentTarget) {
+        closeLoreModal();
+    }
 }
 
 // 点击模态框外部关闭
