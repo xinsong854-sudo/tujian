@@ -5,9 +5,9 @@ window.LORE_ORGANIZATIONS = [
   {
     name: "黎守调查局",
     alias: "Dawn Guard",
-    description: "名字意为"黎明前的守护"，人类一方执法部门，负责调查并收容里界和伪人",
+    description: "名字意为'黎明前的守护'，人类一方执法部门，负责调查并收容里界和伪人",
     duties: "调查异常事件、收容登记伪人、收缴伪物、配合对伪课行动",
-    features: "对伪人持中立态度，无危险性伪人可获得"公民"身份，职责是维护平衡而非消灭伪人",
+    features: "对伪人持中立态度，无危险性伪人可获得'公民'身份，职责是维护平衡而非消灭伪人",
     knownMembers: "白桦（对伪课副课长）",
     location: "总部设于渊，各地区设有分局"
   },
@@ -59,7 +59,7 @@ window.LORE_ORGANIZATIONS = [
   {
     name: "非常电影院",
     alias: "Extraordinary Cinema",
-    description: "渊境内最大"哨站"，兼具伪人生活与委托处理的综合机构",
+    description: "渊境内最大'哨站'，兼具伪人生活与委托处理的综合机构",
     duties: "提供伪人生活服务、交付人类特殊委托给伪人、放映里界影像",
     features: "哨站的一种、面向伪人和人类两界、信息交换灰色地带",
     knownMembers: "非常玦蝶（站长）、单先生（院长）、虫者（售票员/放映员）、长喙（说书人）",
@@ -159,7 +159,7 @@ window.LORE_CHARACTERS = [
   {
     name: "烛灯",
     alias: "Candle",
-    description: "「揭秘人」组织最后成员，论坛遗产如烛火般照亮人类",
+    description: "'揭秘人'组织最后成员，论坛遗产如烛火般照亮人类",
     role: "揭秘人/信息提供者",
     features: "神秘、发布关键指导帖子后失踪",
     knownAssociates: "揭秘人组织（已解散）",
@@ -168,7 +168,7 @@ window.LORE_CHARACTERS = [
   {
     name: "绫份",
     alias: "Ling Fen",
-    description: "代号「白夜叉」，17 岁格斗术大师，精通绫流体术",
+    description: "代号'白夜叉'，17 岁格斗术大师，精通绫流体术",
     role: "物理清除专家/格斗大师",
     features: "豪放直接，战斗狂倾向，异常抗性极高",
     knownAssociates: "槐安公寓",
@@ -668,25 +668,6 @@ window.findOrganization = function(name) {
 };
 
 window.findRegion = function(name) {
-  return window.LORE_REGIONS.find(region => region.name === name || region.alias === name);
-};
-
-window.findCharacter = function(name) {
-  return window.LORE_CHARACTERS.find(char => char.name === name || char.alias === name);
-};
-
-// 导出统计信息
-window.LORE_STATS = {
-  organizations: window.LORE_ORGANIZATIONS.length,
-  regions: window.LORE_REGIONS.length,
-  characters: window.LORE_CHARACTERS.length,
-  lastUpdated: new Date().toISOString()
-};
-dated: new Date().toISOString()
-};
-).toISOString()
-};
-ndow.findRegion = function(name) {
   return window.LORE_REGIONS.find(region => region.name === name || region.alias === name);
 };
 
