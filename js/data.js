@@ -62,7 +62,13 @@ window.IDENTITY_KEYWORDS = {
     "小雨": "再说封你号",
     "暮笙笙": "紫色大喷菇",
     "夕月": "鲤鱼王",
-    "xh": "阳光开朗的站长"
+    "xh": "阳光开朗的站长",
+    // 更多身份关键词
+    "西西": "恶魔修女",
+    "伪人西": "恶魔修女",
+    "桃花": "桃花堂堂主",
+    "桃花不换酒": "桃花堂堂主",
+    "卜焕汣": "桃花堂堂主"
 };
 
 // ========== 权限配置 ==========
@@ -80,8 +86,10 @@ window.HIGH_PERMISSION_USERS = [
     '折纸簌鸟', '松下·拉尔', '江安', 'C.',
     // 特殊关键词用户（关键词身份）
     '土豆服务器持有者', '再说封你号', '紫色大喷菇', '鲤鱼王', '阳光开朗的站长',
+    '恶魔修女', '桃花堂堂主',
     // 特殊关键词用户（用户名，用于模糊匹配）
-    '奈塔', '小雨', '暮笙笙', '夕月', 'xh'
+    '奈塔', '小雨', '暮笙笙', '夕月', 'xh',
+    '西西', '伪人西', '桃花', '桃花不换酒', '卜焕汣'
 ];
 
 // 最高权限用户（可查看所有内容）
@@ -91,7 +99,7 @@ window.MAX_PERMISSION_USERS = ['营长'];
 window.PERMISSION_LEVELS = {
     low: { name: '受限访问', canView: ['safe'] },
     normal: { name: '标准访问', canView: ['safe', 'caution'] },
-    high: { name: '高级访问', canView: ['safe', 'caution', 'danger'] },
+    high: { name: '高级访问', canView: ['safe', 'caution', 'danger', 'hazard'] },
     max: { name: '最高权限', canView: ['safe', 'caution', 'danger', 'hazard'] }
 };
 

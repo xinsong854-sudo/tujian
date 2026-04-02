@@ -356,16 +356,16 @@ function verifyPermissionCode() {
         // 验证成功
         console.log('验证码正确，提升权限...');
         messageDiv.className = 'permission-message success';
-        messageDiv.textContent = '🔑 临时最高权限';
+        messageDiv.textContent = '🔑 临时高级权限';
         
         // 更新权限等级
-        currentUserLevel = 'max';
+        currentUserLevel = 'high';
         
         // 更新 localStorage
         if (currentUser) {
             localStorage.setItem('pseudoArtifactsUser', JSON.stringify({ 
                 name: currentUser, 
-                level: 'max',
+                level: 'high',
                 isTemporary: true 
             }));
         }

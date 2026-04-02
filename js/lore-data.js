@@ -4,48 +4,48 @@
 window.LORE_ORGANIZATIONS = [
   {
     name: "黎守调查局",
-    alias: "Dawn Guard Investigation Bureau",
-    description: "官方异常事件调查机构，负责处理表界与里界之间的异常现象",
-    duties: "调查异常事件、收容危险伪人、维护表界安全",
-    features: "拥有官方授权、装备精良、行动隐秘",
-    knownMembers: "安诺涅（前特工）、斯汀先生（顾问）",
+    alias: "Dawn Guard",
+    description: "名字意为"黎明前的守护"，人类一方执法部门，负责调查并收容里界和伪人",
+    duties: "调查异常事件、收容登记伪人、收缴伪物、配合对伪课行动",
+    features: "对伪人持中立态度，无危险性伪人可获得"公民"身份，职责是维护平衡而非消灭伪人",
+    knownMembers: "白桦（对伪课副课长）",
     location: "总部设于渊，各地区设有分局"
   },
   {
     name: "对伪课",
     alias: "Anti-Pseudo Division",
-    description: "专门针对伪人威胁的特种部门",
-    duties: "伪人识别、清除高危伪人、保护关键人物",
-    features: "精英化编制、拥有特殊检测装备、行动迅速",
-    knownMembers: "营长（前指挥官）、灼玥",
+    description: "黎守下属特别武装单位，配备重火力武器，镇压高危伪人",
+    duties: "处理高危伪人事件、配合黎守行动、特殊武力镇压",
+    features: "精英化编制、重火力装备、特殊武装单位",
+    knownMembers: "白桦（副课长）",
     location: "分布于各大城市"
   },
   {
     name: "猎人公会",
     alias: "Hunter's Guild",
-    description: "民间异常猎人组成的松散联盟",
-    duties: "接受委托处理异常事件、猎杀危险伪人、情报交易",
-    features: "成员鱼龙混杂、按任务等级分配、地下网络发达",
-    knownMembers: "白桦",
-    location: "据点遍布西陆联盟各地"
+    description: "民间武装团体，以公会为基本形式，汇集民间人士处理伪人事件",
+    duties: "接取民间委托、镇压高危伪人、处理门、寻猎伪物",
+    features: "利益导向、使用伪物对抗伪人、处于灰色地带、民间复仇者聚集",
+    knownMembers: "多位民间猎人",
+    location: "据点遍布各地"
   },
   {
     name: "绿洲",
-    alias: "Oasis",
-    description: "伪人与人类共存的庇护所组织",
-    duties: "保护温和伪人、促进种族和解、提供庇护",
-    features: "理念和平主义、隐蔽性强、内部等级森严",
-    knownMembers: "绫份（协调者）",
-    location: "位置保密，多处秘密据点"
+    alias: "OASIS",
+    description: "致力于研究世界异象、开发里界的神秘学科研组织，以世界存续为目标",
+    duties: "探索里界、保障伪人权益、让伪人与人类社会建立联系",
+    features: "绝对中立、成员地位平等、实验室称'花园'、成员称'园丁'以花名代称",
+    knownMembers: "亚契·谜思（炼金术师）、荆千棘（助手）",
+    location: "总部位于西陆联盟、渊和赤星交界的沙漠绿洲中"
   },
   {
     name: "ABSC",
-    alias: "Anomalous Being Surveillance Committee",
-    description: "异常生物监控委员会，国际联合组织",
-    duties: "全球异常现象监控、制定国际标准、协调各国行动",
-    features: "跨国组织、资源雄厚、政治影响力大",
-    knownMembers: "艾尔伯特·帕拉索（委员长）",
-    location: "总部西陆联盟，全球设有监测站"
+    alias: "Albert Interdimensional Survey Committee",
+    description: "艾尔伯特里界调查委员会，专业情报搜集机构，分享里界资料",
+    duties: "搜集调查整理里界资料、通过 IRASP 分享给其他组织",
+    features: "总部位于 SAFE 级里界内、专业情报机构、创始人已故",
+    knownMembers: "艾尔伯特·帕拉索（创始人，已故）、斯汀先生（职员）",
+    location: "总部西陆联盟"
   },
   {
     name: "槐安公寓",
@@ -59,29 +59,29 @@ window.LORE_ORGANIZATIONS = [
   {
     name: "非常电影院",
     alias: "Extraordinary Cinema",
-    description: "能够放映里界影像的神秘场所",
-    duties: "无正式职责，是信息交换的灰色地带",
-    features: "放映内容预示未来、观众身份成谜、时间流速异常",
-    knownMembers: "单先生（院长）、长喙（售票员/放映员）",
-    location: "位置不固定，随缘出现"
+    description: "渊境内最大"哨站"，兼具伪人生活与委托处理的综合机构",
+    duties: "提供伪人生活服务、交付人类特殊委托给伪人、放映里界影像",
+    features: "哨站的一种、面向伪人和人类两界、信息交换灰色地带",
+    knownMembers: "非常玦蝶（站长）、单先生（院长）、虫者（售票员/放映员）、长喙（说书人）",
+    location: "渊境内，最大出入口公寓附近"
   },
   {
     name: "灯塔",
     alias: "The Lighthouse",
-    description: "引导迷失者返回表界的神秘组织",
-    duties: "救助被困里界者、维护表里边界、传递重要信息",
-    features: "成员行踪神秘、拥有特殊导航技术、中立立场",
-    knownMembers: "烛灯（引路人）",
-    location: "表里边界处"
+    description: "由公寓组建、各国承认的伪人教育组织，帮助伪人融入人类社会",
+    duties: "教授伪人化形、控制能力、使用四肢等课程",
+    features: "分六个年级（伪人/半伪人/半智人/智人/半人/人）、有定级考试、引导员运送学生",
+    knownMembers: "桃金娘姐妹（校长）",
+    location: "只在渊以及赤星设有校区"
   },
   {
     name: "茶居公寓",
     alias: "Tea Residence",
-    description: "以茶会为名的情报交流场所",
-    duties: "情报收集与交易、各方势力中立会谈地",
-    features: "表面是茶馆、实则情报中枢、规矩森严",
-    knownMembers: "安布罗斯（店主）",
-    location: "表里边界附近"
+    description: "位于渊南部湾龙市的伪人聚落，二楼茶餐厅，一楼不住人，共 9 层",
+    duties: "提供住宿、水电管理、魑魅管理、社会化教育",
+    features: "传闻有 -9 楼无人层、表面管水电暗地管魑魅",
+    knownMembers: "兔仙（楼长）",
+    location: "渊南部湾龙市"
   }
 ];
 
@@ -641,7 +641,25 @@ window.LORE_CHARACTERS = [
     features: "说话书面化",
     knownAssociates: "槐安公寓 229 室",
     status: "活跃"
-  }
+  },
+  {
+    name: "西西",
+    alias: "伪人西",
+    description: "槐安公寓 504 室住户",
+    role: "公寓住户",
+    features: "关键词：恶魔修女",
+    knownAssociates: "槐安公寓住户",
+    status: "活跃"
+  },
+  {
+    name: "卜焕汣",
+    alias: "桃花不换酒",
+    description: "槐安公寓 610 室住户，桃花堂堂主",
+    role: "桃花堂堂主/公寓住户",
+    features: "关键词：桃花堂堂主",
+    knownAssociates: "槐安公寓住户",
+    status: "活跃"
+  },
 ];
 
 // 辅助函数：按名称查找
@@ -650,6 +668,25 @@ window.findOrganization = function(name) {
 };
 
 window.findRegion = function(name) {
+  return window.LORE_REGIONS.find(region => region.name === name || region.alias === name);
+};
+
+window.findCharacter = function(name) {
+  return window.LORE_CHARACTERS.find(char => char.name === name || char.alias === name);
+};
+
+// 导出统计信息
+window.LORE_STATS = {
+  organizations: window.LORE_ORGANIZATIONS.length,
+  regions: window.LORE_REGIONS.length,
+  characters: window.LORE_CHARACTERS.length,
+  lastUpdated: new Date().toISOString()
+};
+dated: new Date().toISOString()
+};
+).toISOString()
+};
+ndow.findRegion = function(name) {
   return window.LORE_REGIONS.find(region => region.name === name || region.alias === name);
 };
 
