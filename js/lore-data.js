@@ -89,42 +89,50 @@ window.LORE_REGIONS = [
   {
     name: "渊",
     alias: "The Abyss",
-    description: "表界核心区域，人类文明的主要聚集地",
-    features: "科技发达、人口密集、异常事件相对较少",
-    knownLocations: "黎守调查局总部、各大城市、商业中心",
-    notes: "表面平静的现代社会，暗流涌动"
+    description: "表界核心区域，伪人渗透最深的区域之一，里界最大出入口所在地",
+    features: "科技发达、人口密集、异常事件频发但被官方管控掩盖、伪人现象复杂",
+    knownLocations: "槐安公寓、黎守调查局总部、各大城市",
+    notes: "表面平静的现代社会，暗流涌动，伪人聚落集中"
   },
   {
     name: "西陆联盟",
     alias: "Western Continent Alliance",
-    description: "由多个国家组成的政治联盟",
-    features: "政治稳定、军事强大、ABSC 总部所在地",
-    knownLocations: "联盟议会、军事基地、监测站",
-    notes: "表界最强大的政治实体"
+    description: "政教合一的联邦体制，教皇与议会共同执政，魔法与科技并存",
+    features: "宗教西幻风格、魔导技术发达、对伪人采取信仰供奉态度、认证八位伪神",
+    knownLocations: "教廷、西陆伪神教派、圣使教、梦之圣庭、静谧织命者、济世者",
+    notes: "伪神信仰盛行，强大伪人被视作神明供奉"
   },
   {
     name: "赤红新星",
     alias: "Crimson New Star",
-    description: "激进组织控制的区域，主张伪人优先",
-    features: "排外、军事化、伪人激进派聚集地",
-    knownLocations: "训练营、指挥部、秘密实验室",
-    notes: "与主流社会对立，被视为威胁"
+    description: "社会主义国家，强调集体主义与人民至上，计划经济与配给制度",
+    features: "社会福利完善、对伪人采取研究 - 整合政策、设立伪人研究院、定义为特殊人类变体",
+    knownLocations: "伪人研究院、配给站、集体社区",
+    notes: "官方宣传将伪人纳入科学整合范畴"
   },
   {
     name: "渊东共和国",
     alias: "Abyss East Republic",
-    description: "渊东部的独立国家，表里混合区域",
-    features: "文化多元、异常事件频发、管理松散",
-    knownLocations: "槐安公寓、边境检查站、黑市",
-    notes: "表里两界的灰色地带"
+    description: "从渊分裂出来的军事独裁政权，群岛国家，以航运和轻工业见长",
+    features: "全民兵役制（16 岁以上必须服役）、严格边境管控与身份核查、对伪人发动净化战争",
+    knownLocations: "边境检查站、军事基地、渊合作项目区",
+    notes: "军事戒严状态，怀疑者立即处决，与渊是合作伙伴关系"
   },
   {
     name: "表界/里界",
     alias: "Surface/Deep Realm",
-    description: "表界是人类世界，里界是伪人与异常的领域",
-    features: "表界正常物理法则，里界规则扭曲、时空异常",
-    knownLocations: "表界：各大城市；里界：未知领域、边界模糊",
-    notes: "两界之间存在边界，偶有交汇点"
+    description: "表界是人类世界，里界是伪人与异常的领域，两界通过【门】连接",
+    features: "表界正常物理法则，里界规则扭曲、时空异常，【门】出现在空间交界处（门窗、抽屉、显示屏等）",
+    knownLocations: "表界：各大城市；里界：白墟之地、错位花园、疫病区等",
+    notes: "重叠维度，通过【门】连接，非简单边界"
+  },
+  {
+    name: "白墟之地",
+    alias: "White Ruins",
+    description: "里界特殊区域，因规则污染形成的持续扩张纯白地貌，古代巴比伦文明被规则反噬后的废墟",
+    features: "HAZARD 级风险、每日扩张 1.7 米、规则事故现场、信息态结构复杂",
+    knownLocations: "浮城、永寂之湖、巨龙坟墓、边境带",
+    notes: "Cipher 是其勘测者与规则研究者，挖掘规则碎片与古代文明遗留"
   }
 ];
 
