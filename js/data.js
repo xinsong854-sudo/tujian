@@ -383,6 +383,16 @@ window.artifacts = [
         effect: "内容未知",
         image: "images/ca-008.jpg"
     },
+    {
+        id: "CA-009",
+        name: "扇形门",
+        class: "caution",
+        location: "未公开",
+        containment: "标注正确开启方式",
+        description: "看似扇形拉开，实际是左右滑动的门",
+        effect: "开错方式会受到神秘小惩罚",
+        image: "images/ca-009.jpg"
+    },
     
     // ========== 🟧 DANGER 级（3 个）- 高度危险 ==========
     {
@@ -424,6 +434,17 @@ window.artifacts = [
         description: "福音（西陆伪神）散发的极光。关联：福音（角色）。",
         effect: "精神影响/幸福感知",
         image: "images/da-004.jpg"
+    },
+    {
+        id: "DA-005",
+        name: "血管长剑",
+        class: "danger",
+        location: "未公开",
+        containment: "小心保管，避免接触血液",
+        description: "通体白色，剑身有微小凸起和交错纹路",
+        effect: "砍伤人时液体会留在纹路里，和绫份的血混在一起像血管",
+        image: "images/da-005.jpg",
+        related: "绫份"
     },
     
     // ========== 🟥 HAZARD 级（2 个）- 灾难级 ==========
