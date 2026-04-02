@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪物图鉴 | Pseudo-Artifacts Archive</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="warning-banner">
+                <span class="warning-icon">⚠️</span>
+                <span>警告：以下内容包含异常物品信息，仅供授权人员查阅</span>
+            </div>
+            <h1 class="title">伪物图鉴</h1>
+            <p class="subtitle">Pseudo-Artifacts Archive</p>
+            <div class="classification-level">安全等级：<span id="clearance-level">待授权</span></div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-filter="all">全部 (22)</button>
+            <button class="tab-btn" data-filter="safe">🟩 SAFE (12)</button>
+            <button class="tab-btn" data-filter="caution">🟨 CAUTION (6)</button>
+            <button class="tab-btn" data-filter="danger">🟧 DANGER (3)</button>
+            <button class="tab-btn" data-filter="hazard">🟥 HAZARD (1)</button>
+        </nav>
+
+        <main class="artifact-grid" id="artifact-grid">
+            <!-- 物品卡片将通过 JS 动态加载 -->
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 伪物档案馆 | 未经授权禁止访问</p>
+            <p class="disclaimer">本图鉴为展示用途，所有物品均为虚构</p>
+        </footer>
+    </div>
+
+    <!-- 物品详情模态框 -->
+    <div class="modal" id="artifact-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2 id="modal-title">物品编号</h2>
+                <span class="modal-class" id="modal-class">Safe</span>
+            </div>
+            <div class="modal-image">
+                <img id="modal-img" src="" alt="物品图片">
+            </div>
+            <div class="modal-info">
+                <div class="info-row">
+                    <strong>物品名称：</strong><span id="modal-name"></span>
+                </div>
+                <div class="info-row">
+                    <strong>发现地点：</strong><span id="modal-location"></span>
+                </div>
+                <div class="info-row">
+                    <strong>收容措施：</strong><span id="modal-containment"></span>
+                </div>
+                <div class="info-row">
+                    <strong>特殊效果：</strong>
+                    <p id="modal-effect" class="effect-text"></p>
+                </div>
+                <div class="info-row">
+                    <strong>描述：</strong>
+                    <p id="modal-description" class="description-text"></p>
+                </div>
+            </div>
+            <button class="back-btn" onclick="closeModal()">返回图鉴</button>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
