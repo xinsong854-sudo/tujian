@@ -79,9 +79,9 @@ const MAX_PERMISSION_USERS = ['安诺涅', '营长'];
 
 // 权限等级定义
 const PERMISSION_LEVELS = {
-    low: { name: '低权限', canView: ['safe'] },
-    normal: { name: '普通权限', canView: ['safe', 'caution'] },
-    high: { name: '高权限', canView: ['safe', 'caution', 'danger'] },
+    low: { name: '受限访问', canView: ['safe'] },
+    normal: { name: '标准访问', canView: ['safe', 'caution'] },
+    high: { name: '高级访问', canView: ['safe', 'caution', 'danger'] },
     max: { name: '最高权限', canView: ['safe', 'caution', 'danger', 'hazard'] }
 };
 

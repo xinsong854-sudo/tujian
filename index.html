@@ -11,16 +11,16 @@
     <div class="login-overlay" id="login-overlay">
         <div class="login-box">
             <div class="login-header">
-                <h1>身份验证</h1>
-                <p>Identity Verification</p>
+                <h1>里界访问终端</h1>
+                <p>Innerside Access Terminal</p>
             </div>
             <div class="login-warning">
                 <span class="warning-icon">⚠️</span>
-                <span>警告：本系统仅限授权人员访问</span>
+                <span>警告：您即将访问里界相关收容数据，本系统由黎守调查局授权</span>
             </div>
             <input type="text" id="username-input" class="login-input" placeholder="请输入用户名" autocomplete="off">
             <button class="login-btn" onclick="verifyUser()">验证身份</button>
-            <p class="login-hint">提示：输入档案中的名字可获得相应权限</p>
+            <p class="login-hint">提示：黎守/对伪课/猎人/ABSC/绿洲成员将获得相应访问权限</p>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
         <header class="header">
             <div class="warning-banner">
                 <span class="warning-icon">⚠️</span>
-                <span>警告：以下内容包含异常物品信息，仅供授权人员查阅</span>
+                <span>警告：以下内容包含里界异常物品信息，仅限黎守授权人员查阅</span>
             </div>
             <h1 class="title">伪物图鉴</h1>
             <p class="subtitle">Pseudo-Artifacts Archive</p>
@@ -59,14 +59,14 @@
         <main class="artifact-grid" id="artifact-grid">
             <div class="empty-state">
                 <div class="empty-icon">📁</div>
-                <p>请点击上方分级查看对应物品</p>
-                <p class="empty-hint">根据权限等级，您可查看不同危险级别的物品</p>
+                <p>请选择里界物品危险等级查看对应收容档案</p>
+                <p class="empty-hint">根据黎守权限等级，您可访问不同危险级别的里界物品档案</p>
             </div>
         </main>
 
         <footer class="footer">
-            <p>© 2026 伪物档案馆 | 未经授权禁止访问</p>
-            <p class="disclaimer">本图鉴为展示用途，所有物品均为虚构</p>
+            <p>© 2026 黎守调查局 伪物档案馆 | 渊 • 西陆 • 赤红新星 联合收容</p>
+            <p class="disclaimer">本系统收录表界/里界异常物品，未经授权禁止访问</p>
         </footer>
     </div>
 
@@ -108,9 +108,10 @@
     <div class="permission-denied" id="permission-denied">
         <div class="denied-content">
             <div class="denied-icon">🔒</div>
-            <h2>权限不足</h2>
-            <p>Access Denied</p>
-            <p class="denied-message">您的权限等级不足以查看此分级的物品</p>
+            <h2>访问受限</h2>
+            <p>Access Restricted</p>
+            <p class="denied-message">您的黎守权限等级不足以查看此分级的里界物品</p>
+            <p class="denied-hint">如需提升权限，请联系黎守调查局或 ABSC 管理部门</p>
             <button class="denied-btn" onclick="closePermissionDenied()">返回</button>
         </div>
     </div>

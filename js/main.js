@@ -83,17 +83,18 @@ function verifyUser() {
 
 // 获取用户身份关键词
 function getUserIdentity(username) {
-    // 检查身份关键词映射
+    // 检查是否为安诺涅/营长（管理者）
+    if (MAX_PERMISSION_USERS.includes(username)) {
+        return '管理者';
+    }
+    // 检查身份关键词映射（档案人物）
     for (const [key, identity] of Object.entries(IDENTITY_KEYWORDS)) {
         if (username.includes(key) || key.includes(username)) {
             return identity;
         }
     }
-    // 默认身份
-    if (MAX_PERMISSION_USERS.includes(username)) {
-        return '管理者';
-    }
-    return '访客';
+    // 默认身份：未识别用户 → 表界公民
+    return '表界公民';
 }
 
 // 显示主界面
