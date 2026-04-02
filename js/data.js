@@ -113,7 +113,7 @@ window.CLASS_PERMISSION_MAP = {
 
 // ========== 伪物数据 ==========
 window.artifacts = [
-    // ========== 🟩 SAFE 级（12 个）- 无害但鸡肋 ==========
+    // ========== 🟩 SAFE 级（17 个）- 无害但鸡肋 ==========
     {
         id: "SA-001",
         name: "永动电视",
@@ -255,8 +255,48 @@ window.artifacts = [
         effect: "兼容所有接口",
         image: "images/sa-014.jpg"
     },
+    {
+        id: "SA-015",
+        name: "熊猫挂件",
+        class: "safe",
+        location: "未公开",
+        containment: "正常保管",
+        description: "一个熊猫造型的挂件，时不时会扎人",
+        effect: "间歇性扎人",
+        image: "images/sa-015.jpg"
+    },
+    {
+        id: "SA-016",
+        name: "变形冰箱贴",
+        class: "safe",
+        location: "未公开",
+        containment: "正常保管",
+        description: "一个可以变形的冰箱贴",
+        effect: "可以变形",
+        image: "images/sa-016.jpg"
+    },
+    {
+        id: "SA-017",
+        name: "永远装不满的杯子",
+        class: "safe",
+        location: "未公开",
+        containment: "正常保管",
+        description: "一个永远装不满的杯子",
+        effect: "装不满",
+        image: "images/sa-017.jpg"
+    },
+    {
+        id: "SA-018",
+        name: "安诺涅的柠檬茶",
+        class: "safe",
+        location: "营长处",
+        containment: "由营长保管",
+        description: "营长的专属饮品",
+        effect: "营长专属",
+        image: "images/sa-018.jpg"
+    },
     
-    // ========== 🟨 CAUTION 级（7 个）- 有一定危险性 ==========
+    // ========== 🟨 CAUTION 级（8 个）- 有一定危险性 ==========
     {
         id: "CA-001",
         name: "记忆相机",
@@ -327,6 +367,16 @@ window.artifacts = [
         effect: "空间传送",
         image: "images/ca-007.jpg",
         related: "非常玦蝶（二营长）"
+    },
+    {
+        id: "CA-008",
+        name: "薛定谔盲盒",
+        class: "caution",
+        location: "未公开",
+        containment: "正常保管，禁止擅自开启",
+        description: "内容未知的盲盒",
+        effect: "内容未知",
+        image: "images/ca-008.jpg"
     },
     
     // ========== 🟧 DANGER 级（3 个）- 高度危险 ==========
