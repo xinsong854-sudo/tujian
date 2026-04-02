@@ -139,6 +139,15 @@ window.LORE_CHARACTERS = [
     status: "活跃"
   },
   {
+    name: "非常玦蝶",
+    alias: "二营长",
+    description: "渊境内最大'哨站'站长，非常电影院站长，伪人论坛二营长，营长的得力助手，渊境内顶尖清劣者",
+    role: "哨站站长/电影院站长/清劣者",
+    features: "来自【若迷界】，营长的得力助手，管理非常电影院和哨站",
+    knownAssociates: "营长（上级）、单先生、长喙",
+    status: "活跃"
+  },
+  {
     name: "单先生",
     alias: "Mr. Shan",
     description: "非常电影院院长，算命先生，闲云野鹤不与世争，为还二营长因果帮忙经营电影院",
