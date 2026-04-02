@@ -396,12 +396,8 @@ function closeModal() {
 }
 
 // 特殊链接正则模式：匹配 [组织名]、[地区名]、[角色名]
-// 从 secrets.js 获取全局变量
-    const SPECIAL_LINK_PATTERNS = window.SPECIAL_LINK_PATTERNS || {};
-    { type: 'organization', regex: /\[([^\]]+)\](?=\s*(?:组织|机构|团体))/g },
-    { type: 'region', regex: /\[([^\]]+)\](?=\s*(?:地区|区域|地方|城市))/g },
-    { type: 'character', regex: /\[([^\]]+)\](?=\s*(?:角色|人物|成员|干员|特工))/g }
-];
+// 从 secrets.js 获取全局变量（对象格式）
+const SPECIAL_LINK_PATTERNS = window.SPECIAL_LINK_PATTERNS || {};
 
 // 格式化辛秘内容，处理特殊链接
 function formatSecretWithLinks(secret) {
@@ -410,12 +406,13 @@ function formatSecretWithLinks(secret) {
     let formatted = secret;
     
     // 使用 SPECIAL_LINK_PATTERNS 正则匹配 [组织名]、[地区名]、[角色名]
-    SPECIAL_LINK_PATTERNS.forEach(pattern => {
-        formatted = formatted.replace(pattern.regex, (match, name) => {
+    // 对象格式：{ organization: /.../g, region: /.../g, character: /.../g }
+    for (const [type, regex] of Object.entries(SPECIAL_LINK_PATTERNS)) {
+        formatted = formatted.replace(regex, (match, name) => {
             // 转换为带 data-type 和 data-name 属性的链接
-            return `<a href="javascript:void(0)" class="secret-link lore-link" data-type="${pattern.type}" data-name="${name}">${name}</a>`;
+            return `<a href="javascript:void(0)" class="secret-link lore-link" data-type="${type}" data-name="${name}">${name}</a>`;
         });
-    });
+    }
     
     // 保留原有的 [[链接文本|URL]] 和 [[URL]] 格式支持
     formatted = formatted.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '<a href="$2" target="_blank" class="secret-link">$1</a>')
