@@ -452,18 +452,18 @@ function showLoreModal(type, name) {
     let loreData = null;
     let titlePrefix = '';
     
-    // 根据 type 和 name 查找资料
+    // 根据 type 和 name 查找资料（数组格式，使用 find）
     switch (type) {
         case 'organization':
-            loreData = LORE_ORGANIZATIONS[name];
+            loreData = LORE_ORGANIZATIONS.find(org => org.name === name);
             titlePrefix = '🏛️ 组织';
             break;
         case 'region':
-            loreData = LORE_REGIONS[name];
+            loreData = LORE_REGIONS.find(reg => reg.name === name);
             titlePrefix = '🌍 地区';
             break;
         case 'character':
-            loreData = LORE_CHARACTERS[name];
+            loreData = LORE_CHARACTERS.find(char => char.name === name);
             titlePrefix = '👤 角色';
             break;
         default:
