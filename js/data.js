@@ -235,8 +235,28 @@ window.artifacts = [
         effect: "静音但间歇性尴尬发声",
         image: "images/sa-012.jpg"
     },
+    {
+        id: "SA-013",
+        name: "延迟水性笔",
+        class: "safe",
+        location: "天风阁",
+        containment: "正常保管",
+        description: "不知道什么时候才能写出字的水性笔",
+        effect: "书写延迟，可能几分钟到几小时后才出水",
+        image: "images/sa-013.jpg"
+    },
+    {
+        id: "SA-014",
+        name: "万能耳机",
+        class: "safe",
+        location: "未公开",
+        containment: "正常保管",
+        description: "可以插进任何电子产品的耳机",
+        effect: "兼容所有接口",
+        image: "images/sa-014.jpg"
+    },
     
-    // ========== 🟨 CAUTION 级（6 个）- 有一定危险性 ==========
+    // ========== 🟨 CAUTION 级（7 个）- 有一定危险性 ==========
     {
         id: "CA-001",
         name: "记忆相机",
@@ -297,6 +317,17 @@ window.artifacts = [
         effect: "减缓 10% 时间流速，过度使用有风险",
         image: "images/ca-006.jpg"
     },
+    {
+        id: "CA-007",
+        name: "二营长的任意门",
+        class: "caution",
+        location: "二营长处",
+        containment: "由二营长保管",
+        description: "可以通往任何地方的门",
+        effect: "空间传送",
+        image: "images/ca-007.jpg",
+        related: "非常玦蝶（二营长）"
+    },
     
     // ========== 🟧 DANGER 级（3 个）- 高度危险 ==========
     {
@@ -328,6 +359,16 @@ window.artifacts = [
         description: "一个人形面具，材质未知。佩戴者会永久失去所有痛觉和情感，成为绝对理性的存在。已有 12 名志愿者佩戴后失踪。",
         effect: "剥夺痛觉与情感，佩戴者失踪",
         image: "images/da-003.jpg"
+    },
+    {
+        id: "DA-004",
+        name: "福音的极光",
+        class: "danger",
+        location: "西陆伪神活动区域",
+        containment: "难以收容",
+        description: "福音（西陆伪神）散发的极光。关联：福音（角色）。",
+        effect: "精神影响/幸福感知",
+        image: "images/da-004.jpg"
     },
     
     // ========== 🟥 HAZARD 级（2 个）- 灾难级 ==========
