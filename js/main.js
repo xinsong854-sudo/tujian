@@ -253,8 +253,14 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// 登出功能（可选）
+// 登出功能
 function logout() {
+    console.log('用户退出登录');
     localStorage.removeItem('pseudoArtifactsUser');
+    // 重置全局变量
+    currentUser = null;
+    currentUserLevel = 'low';
+    currentFilter = null;
+    // 重新加载页面
     location.reload();
 }
