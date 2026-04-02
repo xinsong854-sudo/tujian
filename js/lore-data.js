@@ -209,6 +209,429 @@ window.LORE_CHARACTERS = [
     features: "古老存在，与希庇安一同出现，被西陆联盟视为神明",
     knownAssociates: "希庇安（信徒）、福音",
     status: "活跃"
+  },
+  {
+    name: "化而为",
+    alias: "Hua Er Wei",
+    description: "蓝白色史莱姆状生命，可变形为白发红瞳少女",
+    role: "槐安公寓居民",
+    features: "蓝白色史莱姆形态，可变形为少女，白发红瞳",
+    knownAssociates: "槐安公寓",
+    status: "活跃"
+  },
+  {
+    name: "西瓜人",
+    alias: "Watermelon Man",
+    description: "4580 岁古老存在，执念成为人类，赠予西瓜汁",
+    role: "槐安公寓居民",
+    features: "西瓜外形，4580 岁，渴望成为人类",
+    knownAssociates: "槐安公寓",
+    status: "活跃"
+  },
+  {
+    name: "X",
+    alias: "生骸·X/093",
+    description: "神秘小孩，危险等级 DANGER",
+    role: "槐安公寓居民",
+    features: "小孩外表，身份神秘，极度危险",
+    knownAssociates: "未知",
+    status: "收容"
+  },
+  {
+    name: "亚契·谜思",
+    alias: "Archi Myst",
+    description: "非人形存在，黄铜零件与植物复合物，危险等级 CAUTION",
+    role: "槐安公寓居民",
+    features: "黄铜零件与植物构成的复合体，非人形",
+    knownAssociates: "咔哒小姐、赫卡忒（创造）",
+    status: "活跃"
+  },
+  {
+    name: "咔哒小姐",
+    alias: "Miss Click",
+    description: "与亚契·谜思相关的神秘存在",
+    role: "槐安公寓居民",
+    features: "与亚契·谜思关联，身份神秘",
+    knownAssociates: "亚契·谜思",
+    status: "活跃"
+  },
+  {
+    name: "赫卡忒",
+    alias: "Hecate",
+    description: "亚契创造的仿生人，炭黑色皮肤，蓝色水晶头发",
+    role: "槐安公寓居民",
+    features: "炭黑色皮肤，蓝色水晶状头发，仿生人",
+    knownAssociates: "亚契·谜思（创造者）",
+    status: "活跃"
+  },
+  {
+    name: "特洛菲&洛洛",
+    alias: "Trophy & Lolo",
+    description: "人监之口，异种，食量惊人",
+    role: "槐安公寓居民",
+    features: "异种组合，食量异常巨大",
+    knownAssociates: "槐安公寓",
+    status: "活跃"
+  },
+  {
+    name: "医生",
+    alias: "瘟疫病主",
+    description: "来历不明，瘟疫医生形象，古老伪人",
+    role: "槐安公寓居民",
+    features: "瘟疫医生装扮，来历神秘，古老存在",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "多虫",
+    alias: "Multi-Worm",
+    description: "种群档案，诞生于里界'巢穴'，敌对",
+    role: "敌对种群",
+    features: "群体意识，诞生于里界巢穴",
+    knownAssociates: "里界巢穴",
+    status: "敌对"
+  },
+  {
+    name: "人魈",
+    alias: "Human Demon",
+    description: "种群档案，诞生于里界'怪原'，敌对",
+    role: "敌对种群",
+    features: "诞生于里界怪原，敌对倾向",
+    knownAssociates: "里界怪原",
+    status: "敌对"
+  },
+  {
+    name: "凝胶",
+    alias: "Gel",
+    description: "种群档案，诞生于里界'随心'，凝胶状球型生物",
+    role: "里界原生种群",
+    features: "凝胶状球型，形态可变，诞生于随心",
+    knownAssociates: "里界随心区域",
+    status: "活跃"
+  },
+  {
+    name: "汐&涟",
+    alias: "Xi & Lian",
+    description: "鲛人，出没于渊附近海域，歌声特殊",
+    role: "鲛人种群",
+    features: "双人组合，歌声具有特殊能力，出没于海域",
+    knownAssociates: "渊附近海域",
+    status: "活跃"
+  },
+  {
+    name: "渔夫",
+    alias: "圣地亚哥·梅尔维尔/Santiago Melville",
+    description: "利维坦，2.2 米渔夫形象，穿雨衣",
+    role: "利维坦",
+    features: "身高 2.2 米，渔夫装扮，常穿雨衣",
+    knownAssociates: "海域、渔场",
+    status: "活跃"
+  },
+  {
+    name: "拟人蝎",
+    alias: "Anthro-Scorpion",
+    description: "里界'巢穴'来源，仅雌性，独居",
+    role: "里界原生种群",
+    features: "仅雌性个体，独居习性，来自巢穴",
+    knownAssociates: "里界巢穴",
+    status: "活跃"
+  },
+  {
+    name: "深破",
+    alias: "我深深的破碎/My Deep Broken",
+    description: "由无数方块构成的女孩，SAFE 级",
+    role: "异常个体",
+    features: "身体由无数方块构成，SAFE 级异常",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "希庇安",
+    alias: "Ιππότης/Hippotes",
+    description: "神裔，与安布罗斯一同出现",
+    role: "神裔/信徒",
+    features: "希腊语名意为'骑士'，与安布罗斯共同行动",
+    knownAssociates: "安布罗斯（主神）",
+    status: "活跃"
+  },
+  {
+    name: "无名卿",
+    alias: "Nameless One",
+    description: "外来者，沉默寡言，声音清冷",
+    role: "外来者",
+    features: "沉默寡言，声音清冷，身份神秘",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "伊露",
+    alias: "Yilu",
+    description: "无感情，制作表情面具",
+    role: "面具制作者",
+    features: "无感情表达，擅长制作表情面具",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "春山抚子",
+    alias: "伪抚/False Nadeshiko",
+    description: "美短虎斑猫本体，天风阁，模仿人类",
+    role: "伪人/模仿者",
+    features: "本体为美短虎斑猫，居于天风阁，模仿人类行为",
+    knownAssociates: "天风阁",
+    status: "活跃"
+  },
+  {
+    name: "小赤帽",
+    alias: "Little Red Cap",
+    description: "狼影赤帽，槐安公寓 609，负责卫生清洁",
+    role: "公寓住户/清洁工",
+    features: "狼影赤帽身份，居住于槐安公寓 609，负责清洁",
+    knownAssociates: "槐安公寓",
+    status: "活跃"
+  },
+  {
+    name: "虫者",
+    alias: "林虫/翡影",
+    description: "非常电影院售票员/放映员，喜欢看电影的虫子",
+    role: "售票员/放映员",
+    features: "虫子形态，热爱电影",
+    knownAssociates: "非常电影院、单先生、长喙",
+    status: "活跃"
+  },
+  {
+    name: "笑颜",
+    alias: "嬉皮笑脸人偶",
+    description: "槐安公寓 909 住户，嬉皮笑脸的人偶",
+    role: "公寓住户",
+    features: "人偶形态，总是嬉皮笑脸",
+    knownAssociates: "槐安公寓",
+    status: "活跃"
+  },
+  {
+    name: "陆玖",
+    alias: "多面孔",
+    description: "5003 室住户，拥有多面孔多性格",
+    role: "公寓住户",
+    features: "多面孔多性格，身份复杂",
+    knownAssociates: "槐安公寓 5003 室",
+    status: "活跃"
+  },
+  {
+    name: "长喙",
+    alias: "瀚羽",
+    description: "鹰伪人，说书人，追随非常玦蝶",
+    role: "说书人",
+    features: "鹰形态伪人，说书技艺高超",
+    knownAssociates: "非常玦蝶、非常电影院",
+    status: "活跃"
+  },
+  {
+    name: "AT",
+    alias: "Albert Palazzo/奇迹伪神",
+    description: "奇迹伪神，西廷圣使教成员，蛇尾",
+    role: "伪神/圣使",
+    features: "蛇尾，拥有奇迹之力",
+    knownAssociates: "西廷圣使教、艾尔伯特·帕拉索（视为女儿）",
+    status: "活跃"
+  },
+  {
+    name: "墨水夜",
+    alias: "水做的存在",
+    description: "槐安公寓水池中的存在，水做的，食物是史莱姆",
+    role: "公寓住户",
+    features: "水体形态，以史莱姆为食",
+    knownAssociates: "槐安公寓水池",
+    status: "活跃"
+  },
+  {
+    name: "冷寂",
+    alias: "上古存在",
+    description: "上古存在，呆傻，实力未知",
+    role: "上古存在",
+    features: "呆傻外表，实力深不可测",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "石测",
+    alias: "渊成员",
+    description: "渊成员，喜欢吃石头，吓唬小孩",
+    role: "渊成员",
+    features: "嗜石，喜欢吓唬小孩",
+    knownAssociates: "渊",
+    status: "活跃"
+  },
+  {
+    name: "大夜夜",
+    alias: "夜幕高定主人",
+    description: "阴暗邪恶，夜幕高定主人，做高定服装",
+    role: "服装设计师",
+    features: "阴暗邪恶，高定服装大师",
+    knownAssociates: "夜幕高定",
+    status: "活跃"
+  },
+  {
+    name: "伽纳罗丝",
+    alias: "神秘生物",
+    description: "神秘生物，猩红色血液，可吸收血液强化",
+    role: "神秘生物",
+    features: "猩红血液，吸收血液强化自身",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "福音",
+    alias: "Evangelium/西陆伪神",
+    description: "西陆伪神，女性，带来幸福",
+    role: "伪神",
+    features: "女性，带来幸福的存在",
+    knownAssociates: "西陆、安布罗斯、艾尔伯特·帕拉索",
+    status: "活跃"
+  },
+  {
+    name: "涂改",
+    alias: "Tipp-Ex/完美主义者",
+    description: "槐安公寓 209 住户，完美主义者，消除错误字迹",
+    role: "公寓住户",
+    features: "完美主义，能消除错误字迹",
+    knownAssociates: "槐安公寓 209 室",
+    status: "活跃"
+  },
+  {
+    name: "阿秋",
+    alias: "人监",
+    description: "12 岁，人监，渴望被认可",
+    role: "人监",
+    features: "12 岁，渴望被认可",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "鸿",
+    alias: "编辑/记者",
+    description: "114514 岁，编辑/记者，热情洋溢",
+    role: "编辑/记者",
+    features: "114514 岁，热情洋溢",
+    knownAssociates: "媒体界",
+    status: "活跃"
+  },
+  {
+    name: "梦城寺绫希",
+    alias: "无性存在",
+    description: "无性，不属于这个世界的气息",
+    role: "神秘存在",
+    features: "无性，异世界气息",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "云蓝",
+    alias: "大雪纷飞的女孩",
+    description: "大雪纷飞的女孩，手偶",
+    role: "神秘存在",
+    features: "与雪相关，手偶形态",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "约斯米特",
+    alias: "傀儡师",
+    description: "制作傀儡，窥探学习世间",
+    role: "傀儡师",
+    features: "制作傀儡，窥探学习",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "瓦莉奥尔·阿亚奇",
+    alias: "神秘存在",
+    description: "来历不明，158cm/316cm",
+    role: "神秘存在",
+    features: "身高可变 158cm/316cm，来历不明",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "折纸簌鸟",
+    alias: "鸟姐",
+    description: "鸟姐大排档老板，鸟很好吃",
+    role: "大排档老板",
+    features: "经营大排档，鸟很好吃",
+    knownAssociates: "鸟姐大排档",
+    status: "活跃"
+  },
+  {
+    name: "红缇香",
+    alias: "清末祝家独女",
+    description: "清末祝家独女，阴月阴日生，孤鸾入命",
+    role: "祝家独女",
+    features: "阴月阴日生，孤鸾入命",
+    knownAssociates: "祝家",
+    status: "活跃"
+  },
+  {
+    name: "牺牲",
+    alias: "人间名牺牲/古祭之牺",
+    description: "人间名牺牲，古祭之牺，三牲之血",
+    role: "祭祀之牺",
+    features: "古祭之牺，三牲之血",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "兔仙",
+    alias: "茶居公寓楼长",
+    description: "茶居公寓楼长，表面管水电，暗地管魑魅",
+    role: "公寓楼长",
+    features: "表面管水电，暗地管魑魅",
+    knownAssociates: "茶居公寓",
+    status: "活跃"
+  },
+  {
+    name: "Эдельвейс",
+    alias: "绝密档案",
+    description: "绝密档案，国家应急管理部",
+    role: "国家应急管理部",
+    features: "绝密档案级别",
+    knownAssociates: "国家应急管理部",
+    status: "活跃"
+  },
+  {
+    name: "Cipher",
+    alias: "白墟之地勘测者",
+    description: "白墟之地勘测者，规则研究者",
+    role: "勘测者/研究者",
+    features: "勘测白墟之地，研究规则",
+    knownAssociates: "白墟之地",
+    status: "活跃"
+  },
+  {
+    name: "松下·拉尔",
+    alias: "猫娘",
+    description: "槐安公寓住户，女，143cm，猫娘",
+    role: "公寓住户",
+    features: "女性，143cm，猫娘",
+    knownAssociates: "槐安公寓",
+    status: "活跃"
+  },
+  {
+    name: "江安",
+    alias: "治愈者",
+    description: "治愈/封闭情感",
+    role: "治愈者",
+    features: "治愈能力，封闭情感",
+    knownAssociates: "未知",
+    status: "活跃"
+  },
+  {
+    name: "C.",
+    alias: "书面化说话者",
+    description: "槐安公寓 229 住户，说话书面化",
+    role: "公寓住户",
+    features: "说话书面化",
+    knownAssociates: "槐安公寓 229 室",
+    status: "活跃"
   }
 ];
 
