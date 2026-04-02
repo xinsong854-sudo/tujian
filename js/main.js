@@ -397,7 +397,7 @@ function closeModal() {
 
 // 特殊链接正则模式：匹配 [组织名]、[地区名]、[角色名]
 // 从 secrets.js 获取全局变量
-// const SPECIAL_LINK_PATTERNS 已在 secrets.js 中定义
+    const SPECIAL_LINK_PATTERNS = window.SPECIAL_LINK_PATTERNS || {};
     { type: 'organization', regex: /\[([^\]]+)\](?=\s*(?:组织|机构|团体))/g },
     { type: 'region', regex: /\[([^\]]+)\](?=\s*(?:地区|区域|地方|城市))/g },
     { type: 'character', regex: /\[([^\]]+)\](?=\s*(?:角色|人物|成员|干员|特工))/g }
