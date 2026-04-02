@@ -1282,3 +1282,32 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #bbbbbb;
 }
+
+/* 特殊链接样式 - 可点击的组织/地区/角色名 */
+.secret-link {
+    color: #2196F3;
+    text-decoration: none;
+    border-bottom: 1px dashed #2196F3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secret-link:hover {
+    color: #1976D2;
+    border-bottom-style: solid;
+    background-color: rgba(33, 150, 243, 0.1);
+}
+
+.lore-link {
+    color: #2196F3;
+    text-decoration: none;
+    border-bottom: 1px dashed #2196F3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lore-link:hover {
+    color: #1976D2;
+    border-bottom-style: solid;
+    background-color: rgba(33, 150, 243, 0.1);
+}

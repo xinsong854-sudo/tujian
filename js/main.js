@@ -82,16 +82,68 @@ function verifyUser() {
         return;
     }
     
+    // 别名映射：二营长 = 非常玦蝶
+    const normalizedUsername = username === '二营长' ? '非常玦蝶' : username;
+    
+    // 档案中提到的人名（从 SPECIAL_LINK_PATTERNS.character 提取）
+    const archiveCharacters = [
+        '安诺涅', '营长', '单先生', '虫者', '长喙', '化而为', '西瓜人', '兔仙', 
+        '折纸簌鸟', '白桦', '灼玥', '绫份', '斯汀先生', '亚契·谜思', 
+        '梦城寺绫希', '艾尔伯特·帕拉索', '安布罗斯', '希庇安', '福音', 'AT', 
+        '无名卿', '因法勒', '云蓝', '约斯米特', '瓦莉奥尔·阿亚奇', '松下·拉尔', 
+        '江安', 'C.', 'Эдельвейс', 'Cipher', '非常玦蝶'
+    ];
+    
+    // 楼长 = 营长 = 安诺涅 (同一人，max 权限)
+    const maxPermissionAliases = ['楼长', '营长', '安诺涅'];
+    
     // 判断权限等级
     let level = 'low';
     
-    if (MAX_PERMISSION_USERS.includes(username)) {
-        level = 'max';
-        console.log('识别为最高权限用户');
-    } else if (HIGH_PERMISSION_USERS.includes(username)) {
-        level = 'high';
-        console.log('识别为高权限用户');
-    } else if (username.length > 0) {
+    // 检查 max 权限（模糊匹配：包含即匹配）
+    for (const alias of maxPermissionAliases) {
+        if (normalizedUsername.includes(alias) || alias.includes(normalizedUsername)) {
+            level = 'max';
+            console.log('识别为最高权限用户 (匹配:', alias + ')');
+            break;
+        }
+    }
+    
+    // 检查 high 权限（模糊匹配：包含即匹配）
+    if (level !== 'max') {
+        // 先检查 MAX_PERMISSION_USERS 和 HIGH_PERMISSION_USERS 数组（模糊匹配）
+        for (const maxUser of MAX_PERMISSION_USERS) {
+            if (normalizedUsername.includes(maxUser) || maxUser.includes(normalizedUsername)) {
+                level = 'max';
+                console.log('识别为最高权限用户 (数组匹配:', maxUser + ')');
+                break;
+            }
+        }
+        
+        if (level !== 'max') {
+            for (const highUser of HIGH_PERMISSION_USERS) {
+                if (normalizedUsername.includes(highUser) || highUser.includes(normalizedUsername)) {
+                    level = 'high';
+                    console.log('识别为高权限用户 (数组匹配:', highUser + ')');
+                    break;
+                }
+            }
+        }
+        
+        // 检查档案人物（模糊匹配）
+        if (level === 'low') {
+            for (const character of archiveCharacters) {
+                if (normalizedUsername.includes(character) || character.includes(normalizedUsername)) {
+                    level = 'high';
+                    console.log('识别为高权限用户 (档案人物:', character + ')');
+                    break;
+                }
+            }
+        }
+    }
+    
+    // 默认：普通用户
+    if (level === 'low' && username.length > 0) {
         level = 'normal';
         console.log('识别为普通用户');
     }
@@ -108,13 +160,27 @@ function verifyUser() {
 
 // 获取用户身份关键词
 function getUserIdentity(username) {
-    // 检查是否为安诺涅/营长（管理者）
-    if (MAX_PERMISSION_USERS.includes(username)) {
-        return '管理者';
+    // 别名映射：二营长 = 非常玦蝶
+    const normalizedUsername = username === '二营长' ? '非常玦蝶' : username;
+    
+    // 检查是否为安诺涅/营长/楼长（管理者）
+    const maxPermissionAliases = ['楼长', '营长', '安诺涅'];
+    for (const alias of maxPermissionAliases) {
+        if (normalizedUsername.includes(alias) || alias.includes(normalizedUsername)) {
+            return '管理者';
+        }
     }
-    // 检查身份关键词映射（档案人物）
+    
+    // 检查 MAX_PERMISSION_USERS 数组（模糊匹配）
+    for (const maxUser of MAX_PERMISSION_USERS) {
+        if (normalizedUsername.includes(maxUser) || maxUser.includes(normalizedUsername)) {
+            return '管理者';
+        }
+    }
+    
+    // 检查身份关键词映射（档案人物，模糊匹配）
     for (const [key, identity] of Object.entries(IDENTITY_KEYWORDS)) {
-        if (username.includes(key) || key.includes(username)) {
+        if (normalizedUsername.includes(key) || key.includes(normalizedUsername)) {
             return identity;
         }
     }
