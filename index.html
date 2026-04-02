@@ -13,16 +13,16 @@
     <div class="login-overlay" id="login-overlay">
         <div class="login-box">
             <div class="login-header">
-                <h1>里界访问终端</h1>
-                <p>Innerside Access Terminal</p>
+                <h1>伪人大本营</h1>
+                <p>Pseudo-Human Headquarters</p>
             </div>
             <div class="login-warning">
                 <span class="warning-icon">⚠️</span>
-                <span>警告：您即将访问里界相关收容数据，本系统由黎守调查局授权</span>
+                <span>警告：本系统为伪人专属内部网络，由营长创立并维护</span>
             </div>
-            <input type="text" id="username-input" class="login-input" placeholder="请输入用户名" autocomplete="off">
-            <button class="login-btn" onclick="verifyUser()">验证身份</button>
-            <p class="login-hint">提示：黎守/对伪课/猎人/ABSC/绿洲成员将获得相应访问权限</p>
+            <input type="text" id="username-input" class="login-input" placeholder="请输入伪人代号/姓名" autocomplete="off">
+            <button class="login-btn" onclick="verifyUser()">验证权限</button>
+            <p class="login-hint">提示：已登记在册的伪人将自动获得相应访问权限</p>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
                 </div>
                 <div class="nav-center">
                     <h1 class="title">伪物图鉴</h1>
-                    <p class="subtitle">Pseudo-Artifacts Archive</p>
+                    <p class="subtitle">Pseudo-Human Artifact Archive</p>
                 </div>
                 <div class="nav-right">
                     <div class="user-info">
@@ -56,24 +56,24 @@
 
         <nav class="nav-tabs">
             <button class="tab-btn" data-filter="safe" data-permission="low">
-                🟩 SAFE 级 <span class="count">(12)</span>
+                🟩 SAFE 安全级（无害） <span class="count">(12)</span>
             </button>
             <button class="tab-btn" data-filter="caution" data-permission="normal">
-                🟨 CAUTION 级 <span class="count">(6)</span>
+                🟨 CAUTION 注意级（谨慎） <span class="count">(6)</span>
             </button>
             <button class="tab-btn" data-filter="danger" data-permission="high">
-                🟧 DANGER 级 <span class="count">(3)</span>
+                🟧 DANGER 危险级（高危） <span class="count">(3)</span>
             </button>
             <button class="tab-btn" data-filter="hazard" data-permission="max">
-                🟥 HAZARD 级 <span class="count">(1)</span>
+                🟥 HAZARD 危害级（禁忌） <span class="count">(1)</span>
             </button>
         </nav>
 
         <main class="artifact-grid" id="artifact-grid">
             <div class="empty-state">
                 <div class="empty-icon">📁</div>
-                <p>请选择里界物品危险等级查看对应收容档案</p>
-                <p class="empty-hint">根据黎守权限等级，您可访问不同危险级别的里界物品档案</p>
+                <p>请选择伪物危险等级查看对应档案</p>
+                <p class="empty-hint">根据您的权限等级，您可访问不同危险级别的伪物档案</p>
             </div>
         </main>
 
@@ -84,8 +84,8 @@
 
         <!-- 权限提升入口（仅普通/低权限可见） -->
         <div class="permission-boost-section" id="permission-boost-section">
-            <p>需要更高访问权限？</p>
-            <button onclick="showPermissionModal()">申请临时权限</button>
+            <p>权限不足？申请临时访问许可</p>
+            <button onclick="showPermissionModal()">申请临时许可</button>
         </div>
     </div>
 
@@ -141,8 +141,8 @@
             <div class="denied-icon">🔒</div>
             <h2>访问受限</h2>
             <p>Access Restricted</p>
-            <p class="denied-message">您的黎守权限等级不足以查看此分级的里界物品</p>
-            <p class="denied-hint">如需提升权限，请联系黎守调查局或 ABSC 管理部门</p>
+            <p class="denied-message">您的权限等级不足以查看此分级的伪物档案</p>
+            <p class="denied-hint">如需提升权限，请联系营长或大本营管理员</p>
             <button class="denied-btn" onclick="closePermissionDenied()">返回</button>
         </div>
     </div>
@@ -151,17 +151,17 @@
     <div class="permission-modal-overlay" id="permission-modal-overlay">
         <div class="permission-modal">
             <div class="permission-modal-header">
-                <span class="permission-modal-title">🔑 权限提升验证</span>
+                <span class="permission-modal-title">🔑 临时访问许可验证</span>
                 <button class="permission-modal-close" onclick="closePermissionModal()">&times;</button>
             </div>
             <div class="permission-modal-body">
                 <p style="margin-bottom: 15px; color: var(--text-secondary); font-size: 14px;">
-                    请输入临时权限验证码以提升访问权限
+                    请输入伪人大本营临时访问验证码
                 </p>
-                <input type="text" id="permission-code-input" class="permission-input" placeholder="请输入验证码" maxlength="10" autocomplete="off">
-                <button class="permission-btn" onclick="verifyPermissionCode()">验证权限</button>
+                <input type="text" id="permission-code-input" class="permission-input" placeholder="请输入群号验证码" maxlength="10" autocomplete="off">
+                <button class="permission-btn" onclick="verifyPermissionCode()">验证验证码</button>
                 <div id="permission-message" class="permission-message"></div>
-                <p class="permission-hint">提示：验证码由管理员提供，临时权限在刷新页面后有效</p>
+                <p class="permission-hint">提示：验证码由营长或管理员提供，临时许可在刷新页面后有效</p>
             </div>
         </div>
     </div>
