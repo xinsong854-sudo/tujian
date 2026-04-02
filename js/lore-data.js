@@ -26,7 +26,7 @@ window.LORE_ORGANIZATIONS = [
     description: "民间异常猎人组成的松散联盟",
     duties: "接受委托处理异常事件、猎杀危险伪人、情报交易",
     features: "成员鱼龙混杂、按任务等级分配、地下网络发达",
-    knownMembers: "单先生（资深猎人）、白桦",
+    knownMembers: "白桦",
     location: "据点遍布西陆联盟各地"
   },
   {
@@ -62,7 +62,7 @@ window.LORE_ORGANIZATIONS = [
     description: "能够放映里界影像的神秘场所",
     duties: "无正式职责，是信息交换的灰色地带",
     features: "放映内容预示未来、观众身份成谜、时间流速异常",
-    knownMembers: "神秘放映员",
+    knownMembers: "单先生（院长）、长喙（售票员/放映员）",
     location: "位置不固定，随缘出现"
   },
   {
@@ -130,93 +130,84 @@ window.LORE_REGIONS = [
 
 window.LORE_CHARACTERS = [
   {
-    name: "安诺涅",
-    alias: "Anon",
-    description: "前黎守调查局特工，现独立行动",
-    role: "主角/调查者",
-    features: "冷静理性、战斗力强、身世成谜",
-    knownAssociates: "斯汀先生（导师）、营长（旧识）",
-    status: "活跃"
-  },
-  {
     name: "营长",
-    alias: "Captain",
-    description: "前对伪课指挥官，现隐居",
-    role: "导师/情报提供者",
-    features: "经验丰富、人脉广泛、行事谨慎",
-    knownAssociates: "安诺涅（后辈）、灼玥（前下属）",
-    status: "半退休"
+    alias: "Captain/安诺涅/楼长",
+    description: "伪人论坛《伪人大本营》管理者，槐安公寓楼长，负责督察进入现实的伪人适应情况，兼职清劣者",
+    role: "论坛管理者/公寓楼长/清劣者",
+    features: "真名不详，官方成员，管理最大出入口公寓",
+    knownAssociates: "非常玦蝶（助手/二营长）、斯汀先生、灼玥",
+    status: "活跃"
   },
   {
     name: "单先生",
     alias: "Mr. Shan",
-    description: "资深猎人公会成员",
-    role: "猎人/情报商",
-    features: "老练、消息灵通、收费合理",
-    knownAssociates: "白桦（搭档）、多位公会成员",
+    description: "非常电影院院长，算命先生，闲云野鹤不与世争，为还二营长因果帮忙经营电影院",
+    role: "电影院院长/算命先生",
+    features: "性别未知，姓名未知，世人只知姓单",
+    knownAssociates: "非常玦蝶（二营长）、长喙（雇员）",
     status: "活跃"
   },
   {
     name: "烛灯",
     alias: "Candle",
-    description: "灯塔组织的引路人",
-    role: "引导者",
-    features: "神秘、能够穿梭表里、拥有特殊能力",
-    knownAssociates: "灯塔成员、多位被救助者",
-    status: "活跃"
+    description: "「揭秘人」组织最后成员，论坛遗产如烛火般照亮人类",
+    role: "揭秘人/信息提供者",
+    features: "神秘、发布关键指导帖子后失踪",
+    knownAssociates: "揭秘人组织（已解散）",
+    status: "失踪"
   },
   {
     name: "绫份",
     alias: "Ling Fen",
-    description: "绿洲组织的协调者",
-    role: "和平主义者/调解人",
-    features: "温和、善于沟通、伪人同情者",
-    knownAssociates: "绿洲成员、温和伪人",
+    description: "代号「白夜叉」，17 岁格斗术大师，精通绫流体术",
+    role: "物理清除专家/格斗大师",
+    features: "豪放直接，战斗狂倾向，异常抗性极高",
+    knownAssociates: "槐安公寓",
     status: "活跃"
   },
   {
     name: "白桦",
     alias: "Birch",
-    description: "猎人公会精英成员",
-    role: "猎人/战士",
-    features: "身手敏捷、性格直爽、重情义",
-    knownAssociates: "单先生（搭档）、公会成员",
+    description: "对伪课副课长，实力强悍，总是一副睡不醒的样子",
+    role: "对伪课副课长",
+    features: "速战速决，经常摸鱼睡觉，用重型长柄锤",
+    knownAssociates: "黎守、对伪课",
     status: "活跃"
   },
   {
     name: "灼玥",
     alias: "Zhuo Yue",
-    description: "前对伪课精英，现独立猎人",
-    role: "战士/自由代理人",
-    features: "战斗能力强、性格火爆、有自己的原则",
-    knownAssociates: "营长（前上司）、猎人公会",
+    description: "原方舟科研组小组长，辞职后成为独立调查员",
+    role: "独立调查员",
+    features: "27 岁金发金瞳男，有勇有谋，使用反叛长剑和静心外衣",
+    knownAssociates: "方舟科研组（前）",
     status: "活跃"
   },
   {
     name: "斯汀先生",
     alias: "Mr. Sting",
-    description: "黎守调查局顾问，神秘人物",
-    role: "顾问/情报分析",
-    features: "知识渊博、深不可测、背景神秘",
-    knownAssociates: "安诺涅（学生）、调查局高层",
+    description: "ABSC 人类职员，与伪人接触最多，年龄超常，男姓女身",
+    role: "ABSC 职员/联络人",
+    features: "姓氏保密，身体为女性",
+    knownAssociates: "ABSC、伪人们",
     status: "活跃"
   },
   {
     name: "艾尔伯特·帕拉索",
     alias: "Albert Paraso",
-    description: "ABSC 委员长，国际权威人物",
-    role: "决策者/政治人物",
-    features: "政治手腕强、影响力大、立场复杂",
-    knownAssociates: "ABSC 成员、各国政要",
-    status: "活跃"
+    description: "ABSC 创始人，伟大人类先驱，已故，现为灵体旅者",
+    role: "创始人/先驱（已故）",
+    features: "温柔善良，发明普罗米修斯提灯，25 岁牺牲",
+    knownAssociates: "AT（奇迹伪神，女儿般看待）、福音",
+    status: "已故（灵体状态）"
   },
   {
     name: "安布罗斯",
-    alias: "Ambrose",
-    description: "茶居公寓店主，情报中间人",
-    role: "情报商/中立者",
-    features: "八面玲珑、消息灵通、守口如瓶",
-    knownAssociates: "各方势力、情报贩子",
+    alias: "Ambrose/Αθάνατο",
+    description: "西陆'神裔'，伪神，中世纪时期已有目击记录，被视作神明/天使般的存在",
+    role: "伪神/神裔",
+    features: "古老存在，与希庇安一同出现，被西陆联盟视为神明",
+    knownAssociates: "希庇安（信徒）、福音",
     status: "活跃"
   }
 ];
